@@ -90,3 +90,5 @@ If the save fails (see below), or if you made changes and then changed your mind
 OK, when I tried to create a conflict, the message I got, in a pop-up window called "Push Results", said my push had been "[rejected - non-fast-forward]".
 
 Anyway, if a push fails, email me and we'll work it out. My changes are (or should be) programmatic, so I can re-do them without much effort.
+
+Email me and we'll work it out. My changes are (or should be) programmatic, so I can re-do them without much effort.
