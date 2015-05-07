@@ -66,12 +66,42 @@ An Eclipse project allowing us to edit our ontology in TopBraid Composer.
 
 *Do this after every editing session!*
 
-  * If you've made local changes, the project and changed files will have a ">" before them
+#### First, create patch to capture your changes
+
+*This is an extra step, but makes it way easier to fix conflicts.*
+
   * Right-click on CVProject in Navigator pane (bottom left)
+  * Team > Create Patch...
+     * Click "Workspace" radio button and "Browse"
+     * In "File name:" text box, enter <yourinitials>-<YYYYMMDD>.patch, e.g. kk-20150506.patch
+       * For subsequent edits in a single day, add a number: e.g. kk-20150506-1.patch
+     * Click "Finish"
+
+#### Commit and push
+
+  * If you've made local changes, the project and changed files will have a ">" before them
+  * Right-click on CVProject
   * Team > Commit...
   * "Commit Changes" dialog:
     * Enter commit message (short, but descriptive)
+    * Modified files will be selected in bottom window; your .patch file will not
     * Click "Commit and Push" (left button)! *(not just "Commit", the right button)*
+
+#### In case of conflicts, commit your .patch file instead
+
+When I created a conflict, I got a message in a pop-up window called
+"Push Results", saying my push had been "[rejected -
+non-fast-forward]".
+
+  * Right-click on CVProject
+  * Team > Commit...
+  * In the "Commit changes" dialog:
+    * Enter "conflict" in the commit message
+    * Select your .patch file in the bottom window
+    * Click "Commit and Push"
+    * Email me
+    * **DON'T PULL** until changes are resolved!
+    * If you want to keep editing, just create and commit more patch files
 
 ### Back out changes before commit
 
@@ -85,9 +115,8 @@ If the save fails (see below), or if you made changes and then changed your mind
   * File > Refresh (or F5)
   * Open (or re-open) the ontology
   
-### Conflicts
 
-OK, when I tried to create a conflict, the message I got, in a pop-up window called "Push Results", said my push had been "[rejected - non-fast-forward]".
+### Conflicts
 
 Anyway, if a push fails, email me and we'll work it out. My changes are (or should be) programmatic, so I can re-do them without much effort.
 
