@@ -102,8 +102,8 @@ An Eclipse project allowing us to edit our ontology in TopBraid Composer.
     * Syntax highlighting
     * Error correction
     * Auto-completion: ctrl-space
-    * Transitive closure on properties!
-      * e.g. rdfs:subClassOf*, ont:hasPart*
+    * Transitive closure on properties!  Just tack on an asterisk
+      * e.g. rdfs:subClassOf\*, ont:hasPart\*
 
 * * *
 
