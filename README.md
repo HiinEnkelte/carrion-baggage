@@ -49,7 +49,7 @@ An Eclipse project allowing us to edit our ontology in TopBraid Composer.
     
 ### Edit the ontology
 
-*Hope we'll flesh this section out over time.*
+*Hoping we'll flesh this section out over time.*
 
 * * *
 
@@ -114,10 +114,3 @@ If the save fails (see below), or if you made changes and then changed your mind
   * If you've got the ontology open, close it (click the X next to the filename in the middle top pane)
   * File > Refresh (or F5)
   * Open (or re-open) the ontology
-  
-
-### Conflicts
-
-Anyway, if a push fails, email me and we'll work it out. My changes are (or should be) programmatic, so I can re-do them without much effort.
-
-Email me and we'll work it out. My changes are (or should be) programmatic, so I can re-do them without much effort.
