@@ -50,7 +50,7 @@ An Eclipse project allowing us to edit our ontology in TopBraid Composer.
     
 ### Edit the ontology
 
-*Hope we'll **flush** this section out over time.*
+*Hope we'll flush this section out over time.*  (See what I did there?)
 
 #### Find a single entity
 
@@ -81,8 +81,8 @@ An Eclipse project allowing us to edit our ontology in TopBraid Composer.
 
 *If you know SQL, this will give you post-traumatic flashbacks.*
 
-  * SPARQL tab: bottom middle, left of "Text Search" tab
-  * I stored a couple of cruft-detecting queries
+  * SPARQL tab: bottom middle, left of "Text Search" tab. Sub-tab: Query Library.
+  * I stored a couple of cruft-detecting queries:
     * works not in MusicBrainz
     * composers without works
   * How to see saved queries:
@@ -102,6 +102,8 @@ An Eclipse project allowing us to edit our ontology in TopBraid Composer.
     * Syntax highlighting
     * Error correction
     * Auto-completion: ctrl-space
+    * Transitive closure on properties!
+      * e.g. rdfs:subClassOf*, ont:hasPart*
 
 * * *
 
