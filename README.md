@@ -49,7 +49,7 @@ An Eclipse project allowing us to edit our ontology in TopBraid Composer.
     
 ### Edit the ontology
 
-*Hoping we'll flesh this section out over time.*
+*Hope we'll flesh this section out over time.*
 
 * * *
 
@@ -62,11 +62,23 @@ An Eclipse project allowing us to edit our ontology in TopBraid Composer.
   * Right-click on CVProject in Navigator pane (bottom left)
   * Team > Pull
 
+### Back out changes without committing
+
+If a save fails (see above), or if you made changes and then changed your mind, here's how to back them out:
+
+  * Right-click on CVProject in Navigator pane
+  * Team > Reset...
+  * "Reset" dialog: under "Reset type", select "Hard" radio button, click "Reset"
+  * "Confirm" dialog appears about overwriting changes you've made to working directory; click "Yes"
+  * If you've got the ontology open, close it (click the X next to the filename in the middle top pane)
+  * File > Refresh (or F5)
+  * Open (or re-open) the ontology
+
 ### Commit changes
 
 *Do this after every editing session!*
 
-#### First, create patch to capture your changes
+#### 1. Create patch file
 
 *This is an extra step, but makes it way easier to fix conflicts.*
 
@@ -77,7 +89,7 @@ An Eclipse project allowing us to edit our ontology in TopBraid Composer.
        * For subsequent edits in a single day, add a number: e.g. kk-20150506-1.patch
      * Click "Finish"
 
-#### Commit and push
+#### 2. Commit and push modified files
 
   * If you've made local changes, the project and changed files will have a ">" before them
   * Right-click on CVProject
@@ -87,11 +99,11 @@ An Eclipse project allowing us to edit our ontology in TopBraid Composer.
     * Modified files will be selected in bottom window; your .patch file will not
     * Click "Commit and Push" (left button)! *(not just "Commit", the right button)*
 
-#### In case of conflicts, commit your .patch file instead
+#### 3. If there's a conflict, commit patch file(s) instead
 
 When I created a conflict, I got a message in a pop-up window called
-"Push Results", saying my push had been "[rejected -
-non-fast-forward]".
+"Push Results", saying my push had been "[rejected - non-fast-forward]".
+If this happens:
 
   * Right-click on CVProject
   * Team > Commit...
@@ -100,17 +112,21 @@ non-fast-forward]".
     * Select your .patch file in the bottom window
     * Click "Commit and Push"
     * Email me
-    * **DON'T PULL** until changes are resolved!
-    * If you want to keep editing, just create and commit more patch files
+    * If you want to keep editing, create and commit more patch files
+    * **DON'T PULL** until I tell you the conflicts have been resolved!
 
-### Back out changes before commit
+*Jean, ignore this part:*
 
-If the save fails (see below), or if you made changes and then changed your mind, here's how to back them out:
+  * COMMAND-LINE FU
+    * `git reset --hard HEAD^`   (undo last commit)
+    * `git reset --hard HEAD~2` (last two commits)
+    * without the --hard argument, undoes commits but not changes
+    * This and other gems at: <http://sethrobertson.github.io/GitFixUm/fixup.html#remove_last>
 
-  * Right-click on CVProject in Navigator pane
-  * Team > Reset...
-  * "Reset" dialog: under "Reset type", select "Hard" radio button, click "Reset"
-  * "Confirm" dialog appears about overwriting changes you've made to working directory; click "Yes"
-  * If you've got the ontology open, close it (click the X next to the filename in the middle top pane)
-  * File > Refresh (or F5)
-  * Open (or re-open) the ontology
+#### 4. If no conflict, you can delete your patch file(s)
+
+*You don't have to delete them, but they'll clutter up your workspace.*
+
+ * Right-click on patch file in Navigator pane
+ * Delete
+ * OK
