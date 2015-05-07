@@ -36,6 +36,7 @@ An Eclipse project allowing us to edit our ontology in TopBraid Composer.
 
   * In "Navigator" pane (bottom left), expand CVProject
   * Click twice on cv.rdf
+  * Click the person icon on the top right to see human-readable labels
   
 ### Saving: takes a looong time!
 
@@ -49,7 +50,58 @@ An Eclipse project allowing us to edit our ontology in TopBraid Composer.
     
 ### Edit the ontology
 
-*Hope we'll flesh this section out over time.*
+*Hope we'll **flush** this section out over time.*
+
+#### Find a single entity
+
+  * "Text Search" tab, rightmost on bottom middle pane
+  * "Search string (regex):" text pane
+
+#### Stored queries with arguments
+
+##### Find composer/work combo
+
+  * Model > Run SPARQL Query from SPIN Template...
+  * Select "owl:FilterComposerWorks" from list
+  * Enter text (or regexes) to match composer / work name, e.g. Haydn / Divertimento
+    * Be sure to hit Enter in each text box; it will remind you if you don't
+  * Results show up on "SPIN Template Results" tab, bottom right - can be maximized
+
+##### Order composer's works
+
+  * Model > Run SPARQL Query from SPIN Template ...
+  * Select "owl:SortComposerWorksByID"
+  * Enter text (or regexes) to match composer's name
+    * Be sure to hit Enter in text box
+  * Results show up on "SPIN Template Results" tab, bottom right - can be maximized
+
+#### Stored queries without arguments
+
+##### Query Library
+
+*If you know SQL, this will give you post-traumatic flashbacks.*
+
+  * SPARQL tab: bottom middle, left of "Text Search" tab
+  * I stored a couple of cruft-detecting queries
+    * works not in MusicBrainz
+    * composers without works
+  * How to see saved queries:
+    * double-click on spin:query in "Properties" tab, middle right, main window
+    * saved queries appear at bottom of Property form in the middle
+  * How to run saved queries:
+     * In "Query Library" tab, click checkbox next to query and hit green arrow icon above it
+  * How to save queries:
+    * complete query in Query Editor
+    * click twice on spin:query property in Properties pane
+    * select push-pin icon above Query Editor to attach query to spin:query property
+
+##### Query Editor
+
+  * Nifty features (esp. as compared to Protege):
+    * Knows ontology-defined prefixes
+    * Syntax highlighting
+    * Error correction
+    * Auto-completion: ctrl-space
 
 * * *
 
@@ -80,13 +132,13 @@ If a save fails (see above), or if you made changes and then changed your mind, 
 
 #### 1. Create patch file
 
-*This is an extra step, but makes it way easier to fix conflicts.*
+*This is an extra step, but makes it easier to fix conflicts.*
 
   * Right-click on CVProject in Navigator pane (bottom left)
   * Team > Create Patch...
      * Click "Workspace" radio button and "Browse"
-     * In "File name:" text box, enter <yourinitials>-<YYYYMMDD>.patch, e.g. kk-20150506.patch
-       * For subsequent edits in a single day, add a number: e.g. kk-20150506-1.patch
+     * In "File name:" text box, enter `yourinitials-YYYYMMDD.patch`, e.g. kk-20150506.patch
+       * For subsequent edits on the same day, add a number: e.g. kk-20150506-1.patch
      * Click "Finish"
 
 #### 2. Commit and push modified files
