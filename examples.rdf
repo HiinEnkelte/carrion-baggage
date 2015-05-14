@@ -1,0 +1,210 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY sp "http://spinrdf.org/sp#" >
+    <!ENTITY arg "http://spinrdf.org/arg#" >
+    <!ENTITY spl "http://spinrdf.org/spl#" >
+    <!ENTITY spin "http://spinrdf.org/spin#" >
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY dbpedia "http://dbpedia.org/resource/" >
+    <!ENTITY dbpedia-owl "http://dbpedia.org/ontology/" >
+    <!ENTITY mo "http://purl.org/ontology/mo/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY ont "http://www.co-ode.org/ontologies/ont.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:dbpedia-owl="http://dbpedia.org/ontology/"
+     xmlns:mo="http://purl.org/ontology/mo/"
+     xmlns:sp="http://spinrdf.org/sp#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:arg="http://spinrdf.org/arg#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:spl="http://spinrdf.org/spl#"
+     xmlns:ont="http://www.co-ode.org/ontologies/ont.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:dbpedia="http://dbpedia.org/resource/"
+     xmlns:spin="http://spinrdf.org/spin#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xml:base="http://www.co-ode.org/ontologies/cv/examples">
+    <Ontology rdf:about="">
+        <versionInfo rdf:datatype="&xsd;string">1.1.1</versionInfo>
+        <rdfs:comment>Refactoring: venues. -kk 5/23/15</rdfs:comment>
+        <imports rdf:resource="http://spinrdf.org/spin"/>
+        <imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <imports rdf:resource="http://www.co-ode.org/ontologies/cv/tbox"/>
+    </Ontology>
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#GustavMahler -->
+
+    <NamedIndividual rdf:about="&ont;GustavMahler">
+        <rdf:type rdf:resource="&ont;Composer"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Harmonielehre_Adams -->
+
+    <NamedIndividual rdf:about="&ont;Harmonielehre_Adams">
+        <rdf:type rdf:resource="&ont;OrchestralWork"/>
+        <ont:workComposedBy rdf:resource="&ont;JohnAdams"/>
+        <ont:workHasPerformer rdf:resource="&ont;KlausTenstedt"/>
+        <ont:workHasPerformer rdf:resource="&ont;LondonPhilharmonic"/>
+        <ont:workPerformed rdf:resource="&ont;sample_concert_perf_of_Harmonielehre_Adams"/>
+    </NamedIndividual>
+    
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#JohnAdams -->
+
+    <NamedIndividual rdf:about="&ont;JohnAdams">
+        <rdf:type rdf:resource="&ont;Composer"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#KlausTenstedt -->
+
+    <NamedIndividual rdf:about="&ont;KlausTenstedt">
+        <rdf:type rdf:resource="&ont;Conductor"/>
+        <ont:performerIn rdf:resource="&ont;sample_concert_perf_of_Harmonielehre_Adams"/>
+        <ont:performerIn rdf:resource="&ont;sample_concert_perf_of_SymphonyNo4_Mahler"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#KronosQuartet -->
+
+    <NamedIndividual rdf:about="&ont;KronosQuartet">
+        <rdf:type rdf:resource="&ont;StringQuartetEnsemble"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#LondonPhilharmonic -->
+
+    <NamedIndividual rdf:about="&ont;LondonPhilharmonic">
+        <rdf:type rdf:resource="&ont;SymphonyOrchestra"/>
+        <ont:performerIn rdf:resource="&ont;sample_concert_perf_of_Harmonielehre_Adams"/>
+        <ont:performerIn rdf:resource="&ont;sample_concert_perf_of_SymphonyNo4_Mahler"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#LondonPhilharmonic_sample_concert_Harmonielehre_Adams -->
+
+    <NamedIndividual rdf:about="&ont;LondonPhilharmonic_sample_concert_Harmonielehre_Adams">
+        <rdf:type rdf:resource="&ont;SoundProductionEvent"/>
+        <ont:partPerformedBy rdf:resource="&ont;LondonPhilharmonic"/>
+        <ont:partInPerformance rdf:resource="&ont;sample_concert_perf_of_Harmonielehre_Adams"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#LondonPhilharmonic_sample_concert_SymphonyNo4_Mahler -->
+
+    <NamedIndividual rdf:about="&ont;LondonPhilharmonic_sample_concert_SymphonyNo4_Mahler">
+        <rdf:type rdf:resource="&ont;SoundProductionEvent"/>
+        <ont:partPerformedBy rdf:resource="&ont;LondonPhilharmonic"/>
+        <ont:partInPerformance rdf:resource="&ont;sample_concert_perf_of_SymphonyNo4_Mahler"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#LuciaPopp -->
+
+    <NamedIndividual rdf:about="&ont;LuciaPopp">
+        <rdf:type rdf:resource="&ont;SopranoSinger"/>
+        <ont:performerIn rdf:resource="&ont;sample_concert_perf_of_SymphonyNo4_Mahler"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#LuciaPopp_sample_concert_SymphonyNo4_Mahler -->
+
+    <NamedIndividual rdf:about="&ont;LuciaPopp_sample_concert_SymphonyNo4_Mahler">
+        <rdf:type rdf:resource="&ont;SoundProductionEvent"/>
+        <ont:partPerformedBy rdf:resource="&ont;LuciaPopp"/>
+        <ont:partInPerformance rdf:resource="&ont;sample_concert_perf_of_SymphonyNo4_Mahler"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#NationalSymphonyOrchestraOfWashington -->
+
+    <NamedIndividual rdf:about="&ont;NationalSymphonyOrchestraOfWashington">
+        <rdf:type rdf:resource="&ont;SymphonyOrchestra"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#SymphonyNo4_Mahler -->
+
+    <NamedIndividual rdf:about="&ont;SymphonyNo4_Mahler">
+        <rdf:type rdf:resource="&ont;OrchestralWork"/>
+        <ont:workComposedBy rdf:resource="&ont;GustavMahler"/>
+        <ont:workHasPerformer rdf:resource="&ont;KlausTenstedt"/>
+        <ont:workHasPerformer rdf:resource="&ont;LondonPhilharmonic"/>
+        <ont:workHasPerformer rdf:resource="&ont;LuciaPopp"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#WashingtonNationalOpera -->
+
+    <NamedIndividual rdf:about="&ont;WashingtonNationalOpera">
+        <rdf:type rdf:resource="&ont;OperaCompany"/>
+    </NamedIndividual>
+    
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#sample_concert -->
+
+    <NamedIndividual rdf:about="&ont;sample_concert">
+        <rdf:type rdf:resource="&ont;MusicalEvent"/>
+        <ont:eventHasPerformance rdf:resource="&ont;sample_concert_perf_of_Harmonielehre_Adams"/>
+        <ont:eventHasPerformance rdf:resource="&ont;sample_concert_perf_of_SymphonyNo4_Mahler"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#sample_concert_perf_of_Harmonielehre_Adams -->
+
+    <NamedIndividual rdf:about="&ont;sample_concert_perf_of_Harmonielehre_Adams">
+        <rdf:type rdf:resource="&mo;Performance"/>
+        <ont:performanceOf rdf:resource="&ont;Harmonielehre_Adams"/>
+        <ont:performedBy rdf:resource="&ont;KlausTenstedt"/>
+        <ont:performedBy rdf:resource="&ont;LondonPhilharmonic"/>
+        <ont:hasPerformedPart rdf:resource="&ont;LondonPhilharmonic_sample_concert_Harmonielehre_Adams"/>
+        <ont:performanceInEvent rdf:resource="&ont;sample_concert"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#sample_concert_perf_of_SymphonyNo4_Mahler -->
+
+    <NamedIndividual rdf:about="&ont;sample_concert_perf_of_SymphonyNo4_Mahler">
+        <rdf:type rdf:resource="&mo;Performance"/>
+        <ont:performedBy rdf:resource="&ont;KlausTenstedt"/>
+        <ont:performedBy rdf:resource="&ont;LondonPhilharmonic"/>
+        <ont:hasPerformedPart rdf:resource="&ont;LondonPhilharmonic_sample_concert_SymphonyNo4_Mahler"/>
+        <ont:performedBy rdf:resource="&ont;LuciaPopp"/>
+        <ont:hasPerformedPart rdf:resource="&ont;LuciaPopp_sample_concert_SymphonyNo4_Mahler"/>
+        <ont:performanceOf rdf:resource="&ont;SymphonyNo4_Mahler"/>
+        <ont:performanceInEvent rdf:resource="&ont;sample_concert"/>
+    </NamedIndividual>
+    
+
+
+</rdf:RDF>
