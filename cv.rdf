@@ -30,19 +30,75 @@
         -kk 5/23/15</rdfs:comment>
     <owl:imports rdf:resource="http://www.co-ode.org/ontologies/cv/venues"/>
   </owl:Ontology>
+  <rdf:Property rdf:about="http://spinrdf.org/arg#property">
+    <rdfs:subPropertyOf rdf:resource="http://spinrdf.org/sp#arg"/>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://spinrdf.org/arg#regex">
+    <rdfs:subPropertyOf rdf:resource="http://spinrdf.org/sp#arg"/>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://spinrdf.org/arg#class">
+    <rdfs:subPropertyOf rdf:resource="http://spinrdf.org/sp#arg"/>
+  </rdf:Property>
   <owl:FilterComposerWorks rdf:about="http://www.w3.org/2002/07/owl#FilterComposerWorks_1"/>
+  <owl:FindClassInstancesWithoutProperty rdf:about="http://www.w3.org/2002/07/owl#FindClassInstancesWithoutProperty_1"/>
   <owl:SortComposerWorksByID rdf:about="http://www.w3.org/2002/07/owl#SortComposerWorksByID_1"/>
+  <owl:CountClassInstancesWithoutProperty rdf:about="http://www.w3.org/2002/07/owl#CountClassInstancesWithoutProperty_1"/>
   <rdf:Description rdf:about="http://spinrdf.org/spin#query">
     <spin:query>
       <sp:Select>
+        <sp:resultVariables rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >composerWithoutWorks</sp:varName>
+          </rdf:Description>
+        </sp:resultVariables>
         <sp:where rdf:parseType="Collection">
           <rdf:Description>
+            <sp:object rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Composer"/>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >composerWithoutWorks</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <sp:Filter>
+            <sp:expression>
+              <sp:notExists>
+                <sp:elements rdf:parseType="Collection">
+                  <rdf:Description>
+                    <sp:object rdf:parseType="Resource">
+                      <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                      >composerWithoutWorks</sp:varName>
+                    </sp:object>
+                    <sp:predicate rdf:resource="http://www.co-ode.org/ontologies/ont.owl#workComposedBy"/>
+                    <sp:subject rdf:parseType="Resource">
+                      <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                      >w</sp:varName>
+                    </sp:subject>
+                  </rdf:Description>
+                </sp:elements>
+              </sp:notExists>
+            </sp:expression>
+          </sp:Filter>
+        </sp:where>
+      </sp:Select>
+    </spin:query>
+    <spin:query>
+      <sp:Select>
+        <sp:resultVariables rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >workNotInMusicBrainz</sp:varName>
+          </rdf:Description>
+        </sp:resultVariables>
+        <sp:where rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:object rdf:resource="http://purl.org/ontology/mo/MusicalWork"/>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
             <sp:subject rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
               >workNotInMusicBrainz</sp:varName>
             </sp:subject>
-            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-            <sp:object rdf:resource="http://purl.org/ontology/mo/MusicalWork"/>
           </rdf:Description>
           <sp:Filter>
             <sp:expression>
@@ -51,58 +107,58 @@
                   <sp:Union>
                     <sp:elements rdf:parseType="Collection">
                       <rdf:Description>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                         <rdf:first rdf:parseType="Resource">
-                          <sp:subject rdf:parseType="Resource">
-                            <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                            >workNotInMusicBrainz</sp:varName>
-                          </sp:subject>
-                          <sp:predicate rdf:resource="http://www.co-ode.org/ontologies/ont.owl#musicBrainzURI"/>
                           <sp:object rdf:parseType="Resource">
                             <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
                             >u</sp:varName>
                           </sp:object>
-                        </rdf:first>
-                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                      </rdf:Description>
-                      <rdf:Description>
-                        <rdf:first rdf:parseType="Resource">
+                          <sp:predicate rdf:resource="http://www.co-ode.org/ontologies/ont.owl#musicBrainzURI"/>
                           <sp:subject rdf:parseType="Resource">
                             <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
                             >workNotInMusicBrainz</sp:varName>
                           </sp:subject>
-                          <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+                        </rdf:first>
+                      </rdf:Description>
+                      <rdf:Description>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                        <rdf:first rdf:parseType="Resource">
                           <sp:object>
                             <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#Cruft">
                               <spin:rule>
                                 <sp:Construct>
-                                  <sp:where rdf:parseType="Collection">
-                                    <rdf:Description>
-                                      <sp:subject rdf:parseType="Resource">
-                                        <sp:varName rdf:datatype=
-                                        "http://www.w3.org/2001/XMLSchema#string"
-                                        >w</sp:varName>
-                                      </sp:subject>
-                                      <sp:predicate rdf:resource="http://www.co-ode.org/ontologies/ont.owl#workComposedBy"/>
-                                      <sp:object rdf:resource="http://spinrdf.org/spin#_this"/>
-                                    </rdf:Description>
-                                  </sp:where>
                                   <sp:templates rdf:parseType="Collection">
                                     <rdf:Description>
+                                      <sp:object rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Cruft"/>
+                                      <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
                                       <sp:subject rdf:parseType="Resource">
                                         <sp:varName rdf:datatype=
                                         "http://www.w3.org/2001/XMLSchema#string"
                                         >w</sp:varName>
                                       </sp:subject>
-                                      <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-                                      <sp:object rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Cruft"/>
                                     </rdf:Description>
                                   </sp:templates>
+                                  <sp:where rdf:parseType="Collection">
+                                    <rdf:Description>
+                                      <sp:object rdf:resource="http://spinrdf.org/spin#_this"/>
+                                      <sp:predicate rdf:resource="http://www.co-ode.org/ontologies/ont.owl#workComposedBy"/>
+                                      <sp:subject rdf:parseType="Resource">
+                                        <sp:varName rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#string"
+                                        >w</sp:varName>
+                                      </sp:subject>
+                                    </rdf:Description>
+                                  </sp:where>
                                 </sp:Construct>
                               </spin:rule>
                             </rdf:Description>
                           </sp:object>
+                          <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+                          <sp:subject rdf:parseType="Resource">
+                            <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >workNotInMusicBrainz</sp:varName>
+                          </sp:subject>
                         </rdf:first>
-                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
                       </rdf:Description>
                     </sp:elements>
                   </sp:Union>
@@ -111,399 +167,622 @@
             </sp:expression>
           </sp:Filter>
         </sp:where>
-        <sp:resultVariables rdf:parseType="Collection">
-          <rdf:Description>
-            <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >workNotInMusicBrainz</sp:varName>
-          </rdf:Description>
-        </sp:resultVariables>
       </sp:Select>
     </spin:query>
-    <spin:query>
-      <sp:Select>
-        <sp:where rdf:parseType="Collection">
-          <rdf:Description>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >composerWithoutWorks</sp:varName>
-            </sp:subject>
-            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-            <sp:object rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Composer"/>
-          </rdf:Description>
-          <sp:Filter>
-            <sp:expression>
-              <sp:notExists>
+  </rdf:Description>
+  <owl:FilterClassInstancesByLabel rdf:about="http://www.w3.org/2002/07/owl#FilterClassMembers_1"/>
+  <sp:Optional rdf:nodeID="A0">
+    <sp:elements rdf:parseType="Collection">
+      <rdf:Description>
+        <sp:subject rdf:parseType="Resource">
+          <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >work</sp:varName>
+        </sp:subject>
+        <sp:predicate rdf:resource="http://www.co-ode.org/ontologies/ont.owl#catalogID"/>
+        <sp:object rdf:parseType="Resource">
+          <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >id</sp:varName>
+        </sp:object>
+      </rdf:Description>
+    </sp:elements>
+  </sp:Optional>
+  <rdf:Description rdf:nodeID="A1">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first>
+      <sp:Filter>
+        <sp:expression>
+          <sp:notExists>
+            <sp:elements rdf:parseType="Collection">
+              <sp:Union>
                 <sp:elements rdf:parseType="Collection">
                   <rdf:Description>
-                    <sp:subject rdf:parseType="Resource">
-                      <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                      >w</sp:varName>
-                    </sp:subject>
-                    <sp:predicate rdf:resource="http://www.co-ode.org/ontologies/ont.owl#workComposedBy"/>
-                    <sp:object rdf:parseType="Resource">
-                      <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                      >composerWithoutWorks</sp:varName>
-                    </sp:object>
+                    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    <rdf:first rdf:parseType="Resource">
+                      <sp:object rdf:parseType="Resource">
+                        <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >o</sp:varName>
+                      </sp:object>
+                      <sp:predicate rdf:parseType="Resource">
+                        <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >property</sp:varName>
+                      </sp:predicate>
+                      <sp:subject rdf:parseType="Resource">
+                        <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >i</sp:varName>
+                      </sp:subject>
+                    </rdf:first>
+                  </rdf:Description>
+                  <rdf:Description>
+                    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    <rdf:first rdf:parseType="Resource">
+                      <sp:object rdf:parseType="Resource">
+                        <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >i</sp:varName>
+                      </sp:object>
+                      <sp:predicate rdf:parseType="Resource">
+                        <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >property</sp:varName>
+                      </sp:predicate>
+                      <sp:subject rdf:parseType="Resource">
+                        <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >s</sp:varName>
+                      </sp:subject>
+                    </rdf:first>
                   </rdf:Description>
                 </sp:elements>
-              </sp:notExists>
-            </sp:expression>
-          </sp:Filter>
-        </sp:where>
-        <sp:resultVariables rdf:parseType="Collection">
-          <rdf:Description>
-            <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >composerWithoutWorks</sp:varName>
-          </rdf:Description>
-        </sp:resultVariables>
-      </sp:Select>
-    </spin:query>
+              </sp:Union>
+            </sp:elements>
+          </sp:notExists>
+        </sp:expression>
+      </sp:Filter>
+    </rdf:first>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A0">
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-    <rdf:first rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
-  </rdf:Description>
-  <sp:Values rdf:nodeID="A1">
-    <sp:varNames rdf:parseType="Resource">
-      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-      >wLabel</rdf:first>
-      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-    </sp:varNames>
-    <sp:bindings rdf:parseType="Collection">
+  <rdf:Description rdf:nodeID="A2">
+    <rdf:rest rdf:parseType="Collection">
       <rdf:Description>
         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-        <rdf:first rdf:resource="http://www.co-ode.org/ontologies/ont.owl#catalogID"/>
-      </rdf:Description>
-      <rdf:Description>
-        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-        <rdf:first rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <rdf:first rdf:resource="http://www.w3.org/2004/02/skos/core#prefLabel"/>
       </rdf:Description>
       <rdf:Description>
         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
         <rdf:first rdf:resource="http://www.w3.org/2004/02/skos/core#altLabel"/>
       </rdf:Description>
       <rdf:Description>
-        <rdf:first rdf:resource="http://www.w3.org/2004/02/skos/core#prefLabel"/>
         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+        <rdf:first rdf:resource="http://www.w3.org/2004/02/skos/core#hiddenLabel"/>
+      </rdf:Description>
+    </rdf:rest>
+    <rdf:first rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#label"/>
+    </rdf:first>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A3">
+    <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >regex</sp:varName>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A4">
+    <rdf:rest rdf:parseType="Collection">
+      <rdf:Description>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+        <rdf:first rdf:resource="http://www.w3.org/2004/02/skos/core#prefLabel"/>
       </rdf:Description>
       <rdf:Description>
         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
         <rdf:first rdf:resource="http://www.w3.org/2004/02/skos/core#hiddenLabel"/>
       </rdf:Description>
-    </sp:bindings>
-  </sp:Values>
-  <rdf:Description rdf:nodeID="A2">
-    <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >id</sp:varName>
-  </rdf:Description>
-  <sp:Optional rdf:nodeID="A3">
-    <sp:elements rdf:parseType="Collection">
-      <rdf:Description>
-        <sp:object rdf:parseType="Resource">
-          <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-          >id</sp:varName>
-        </sp:object>
-        <sp:predicate rdf:resource="http://www.co-ode.org/ontologies/ont.owl#catalogID"/>
-        <sp:subject rdf:parseType="Resource">
-          <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-          >work</sp:varName>
-        </sp:subject>
-      </rdf:Description>
-    </sp:elements>
-  </sp:Optional>
-  <rdf:Description rdf:nodeID="A4">
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-    <rdf:first rdf:resource="http://www.w3.org/2004/02/skos/core#hiddenLabel"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A5">
-    <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >cValue</sp:varName>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A6">
+    </rdf:rest>
     <rdf:first rdf:parseType="Collection">
       <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#altLabel"/>
     </rdf:first>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A5">
     <rdf:rest rdf:parseType="Collection">
       <rdf:Description>
-        <rdf:first rdf:resource="http://www.w3.org/2004/02/skos/core#prefLabel"/>
+        <rdf:first rdf:resource="http://www.w3.org/2004/02/skos/core#altLabel"/>
         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+      </rdf:Description>
+      <rdf:Description>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+        <rdf:first rdf:resource="http://www.w3.org/2004/02/skos/core#prefLabel"/>
       </rdf:Description>
       <rdf:Description>
         <rdf:first rdf:resource="http://www.w3.org/2004/02/skos/core#hiddenLabel"/>
         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
       </rdf:Description>
     </rdf:rest>
+    <rdf:first rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#label"/>
+    </rdf:first>
   </rdf:Description>
-  <sp:regex rdf:nodeID="A7">
-    <sp:arg2 rdf:parseType="Resource">
+  <rdf:Description rdf:nodeID="A6">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first>
+      <sp:Union>
+        <sp:elements rdf:parseType="Collection">
+          <rdf:Description>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            <rdf:first rdf:parseType="Resource">
+              <sp:object rdf:parseType="Resource">
+                <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >o</sp:varName>
+              </sp:object>
+              <sp:predicate rdf:parseType="Resource">
+                <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >property</sp:varName>
+              </sp:predicate>
+              <sp:subject rdf:parseType="Resource">
+                <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >i</sp:varName>
+              </sp:subject>
+            </rdf:first>
+          </rdf:Description>
+          <rdf:Description>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            <rdf:first rdf:parseType="Resource">
+              <sp:object rdf:parseType="Resource">
+                <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >i</sp:varName>
+              </sp:object>
+              <sp:predicate rdf:parseType="Resource">
+                <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >property</sp:varName>
+              </sp:predicate>
+              <sp:subject rdf:parseType="Resource">
+                <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >s</sp:varName>
+              </sp:subject>
+            </rdf:first>
+          </rdf:Description>
+        </sp:elements>
+      </sp:Union>
+    </rdf:first>
+  </rdf:Description>
+  <sp:Count rdf:nodeID="A7">
+    <sp:expression rdf:parseType="Resource">
       <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-      >cRegex</sp:varName>
-    </sp:arg2>
-    <sp:arg1 rdf:parseType="Resource">
-      <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-      >cValue</sp:varName>
-    </sp:arg1>
-  </sp:regex>
+      >i</sp:varName>
+    </sp:expression>
+  </sp:Count>
   <rdf:Description rdf:nodeID="A8">
     <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >composer</sp:varName>
+    >id</sp:varName>
   </rdf:Description>
   <rdf:Description rdf:nodeID="A9">
+    <rdf:first rdf:parseType="Resource">
+      <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+      >work</sp:varName>
+    </rdf:first>
     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >cLabel</rdf:first>
   </rdf:Description>
   <rdf:Description rdf:nodeID="A10">
+    <rdf:rest rdf:nodeID="A1"/>
+    <rdf:first rdf:parseType="Resource">
+      <sp:object rdf:parseType="Resource">
+        <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >class</sp:varName>
+      </sp:object>
+      <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+      <sp:subject rdf:parseType="Resource">
+        <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >i</sp:varName>
+      </sp:subject>
+    </rdf:first>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A11">
+    <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >value</sp:varName>
+  </rdf:Description>
+  <spin:SelectTemplate rdf:about="http://www.w3.org/2002/07/owl#CountClassInstancesWithoutProperty">
+    <spin:body>
+      <sp:Select>
+        <sp:resultVariables rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:expression rdf:nodeID="A7"/>
+            <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >count</sp:varName>
+          </rdf:Description>
+        </sp:resultVariables>
+        <sp:distinct rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</sp:distinct>
+        <sp:where rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >class</sp:varName>
+            </sp:object>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >i</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <sp:Filter>
+            <sp:expression>
+              <sp:notExists>
+                <sp:elements rdf:nodeID="A6"/>
+              </sp:notExists>
+            </sp:expression>
+          </sp:Filter>
+        </sp:where>
+      </sp:Select>
+    </spin:body>
+    <rdfs:subClassOf>
+      <spin:SelectTemplate rdf:about="http://www.w3.org/2002/07/owl#FindClassInstancesWithoutProperty">
+        <rdfs:subClassOf>
+          <rdf:Description rdf:about="http://spinrdf.org/spin#SelectTemplates">
+            <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >TODO: FindClassMembersWithoutPredicate (generalize composers without works, works without musicBrainzURIs)</owl:versionInfo>
+            <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >TODO: COUNT counterparts of filter templates</owl:versionInfo>
+          </rdf:Description>
+        </rdfs:subClassOf>
+        <spin:constraint>
+          <spl:Argument>
+            <spl:valueType rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+            <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Class whose instances lack the specified property.</rdfs:comment>
+            <spl:predicate rdf:resource="http://spinrdf.org/arg#class"/>
+          </spl:Argument>
+        </spin:constraint>
+        <spin:constraint>
+          <spl:Argument>
+            <spl:valueType rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+            <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >The property we're seeking instances without.</rdfs:comment>
+            <spl:predicate rdf:resource="http://spinrdf.org/arg#property"/>
+          </spl:Argument>
+        </spin:constraint>
+        <spin:body>
+          <sp:Select>
+            <sp:resultVariables rdf:parseType="Collection">
+              <rdf:Description>
+                <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >i</sp:varName>
+              </rdf:Description>
+            </sp:resultVariables>
+            <sp:distinct rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+            >true</sp:distinct>
+            <sp:where rdf:nodeID="A10"/>
+          </sp:Select>
+        </spin:body>
+      </spin:SelectTemplate>
+    </rdfs:subClassOf>
+  </spin:SelectTemplate>
+  <rdf:Description rdf:nodeID="A12">
+    <rdf:rest rdf:parseType="Collection">
+      <sp:Values>
+        <sp:bindings rdf:parseType="Resource">
+          <rdf:rest rdf:nodeID="A4"/>
+          <rdf:first rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#label"/>
+          </rdf:first>
+        </sp:bindings>
+        <sp:varNames rdf:parseType="Resource">
+          <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >cLabel</rdf:first>
+        </sp:varNames>
+      </sp:Values>
+      <sp:Filter>
+        <sp:expression>
+          <sp:regex>
+            <sp:arg2 rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >cRegex</sp:varName>
+            </sp:arg2>
+            <sp:arg1 rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >cValue</sp:varName>
+            </sp:arg1>
+          </sp:regex>
+        </sp:expression>
+      </sp:Filter>
+      <sp:Filter>
+        <sp:expression>
+          <sp:regex>
+            <sp:arg2 rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >wRegex</sp:varName>
+            </sp:arg2>
+            <sp:arg1 rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >wValue</sp:varName>
+            </sp:arg1>
+          </sp:regex>
+        </sp:expression>
+      </sp:Filter>
+    </rdf:rest>
     <rdf:first>
+      <sp:Values>
+        <sp:bindings rdf:parseType="Resource">
+          <rdf:rest rdf:nodeID="A5"/>
+          <rdf:first rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#catalogID"/>
+          </rdf:first>
+        </sp:bindings>
+        <sp:varNames rdf:parseType="Resource">
+          <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >wLabel</rdf:first>
+        </sp:varNames>
+      </sp:Values>
+    </rdf:first>
+  </rdf:Description>
+  <spl:Argument rdf:nodeID="A13">
+    <spl:valueType rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Regex for members' labels to match</rdfs:comment>
+    <spl:predicate rdf:resource="http://spinrdf.org/arg#regex"/>
+  </spl:Argument>
+  <rdf:Description rdf:nodeID="A14">
+    <rdf:rest rdf:parseType="Collection">
+      <rdf:Description>
+        <sp:object rdf:parseType="Resource">
+          <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >value</sp:varName>
+        </sp:object>
+        <sp:predicate rdf:parseType="Resource">
+          <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >label</sp:varName>
+        </sp:predicate>
+        <sp:subject rdf:parseType="Resource">
+          <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >i</sp:varName>
+        </sp:subject>
+      </rdf:Description>
+      <sp:Values>
+        <sp:bindings rdf:nodeID="A2"/>
+        <sp:varNames rdf:parseType="Resource">
+          <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >label</rdf:first>
+        </sp:varNames>
+      </sp:Values>
+      <sp:Filter>
+        <sp:expression>
+          <sp:regex>
+            <sp:arg2 rdf:nodeID="A3"/>
+            <sp:arg1 rdf:nodeID="A11"/>
+          </sp:regex>
+        </sp:expression>
+      </sp:Filter>
+    </rdf:rest>
+    <rdf:first rdf:parseType="Resource">
+      <sp:object rdf:parseType="Resource">
+        <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >class</sp:varName>
+      </sp:object>
+      <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+      <sp:subject rdf:parseType="Resource">
+        <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >i</sp:varName>
+      </sp:subject>
+    </rdf:first>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A15">
+    <rdf:rest rdf:parseType="Collection">
+      <sp:Values>
+        <sp:varNames rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >cLabel</rdf:first>
+          <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+        </sp:varNames>
+        <sp:bindings rdf:parseType="Collection">
+          <rdf:Description>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            <rdf:first rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+          </rdf:Description>
+          <rdf:Description>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            <rdf:first rdf:resource="http://www.w3.org/2004/02/skos/core#prefLabel"/>
+          </rdf:Description>
+          <rdf:Description>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            <rdf:first rdf:resource="http://www.w3.org/2004/02/skos/core#altLabel"/>
+          </rdf:Description>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://www.w3.org/2004/02/skos/core#hiddenLabel"/>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+          </rdf:Description>
+        </sp:bindings>
+      </sp:Values>
       <sp:Filter>
         <sp:expression>
           <sp:regex>
             <sp:arg1 rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >wValue</sp:varName>
+              >cValue</sp:varName>
             </sp:arg1>
             <sp:arg2 rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >wRegex</sp:varName>
+              >cRegex</sp:varName>
             </sp:arg2>
           </sp:regex>
         </sp:expression>
       </sp:Filter>
-    </rdf:first>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A11">
-    <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >work</sp:varName>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A12">
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-    <rdf:first rdf:parseType="Resource">
-      <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-      >id</sp:varName>
-    </rdf:first>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A13">
-    <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >composer</sp:varName>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A14">
-    <rdf:rest rdf:parseType="Collection">
-      <rdf:Description rdf:nodeID="A4"/>
     </rdf:rest>
-    <rdf:first rdf:parseType="Collection">
-      <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#altLabel"/>
+    <rdf:first rdf:parseType="Resource">
+      <sp:subject rdf:parseType="Resource">
+        <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >composer</sp:varName>
+      </sp:subject>
+      <sp:predicate rdf:parseType="Resource">
+        <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >cLabel</sp:varName>
+      </sp:predicate>
+      <sp:object rdf:parseType="Resource">
+        <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >cValue</sp:varName>
+      </sp:object>
     </rdf:first>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A15">
-    <sp:subject rdf:parseType="Resource">
-      <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-      >work</sp:varName>
-    </sp:subject>
-    <sp:predicate rdf:resource="http://www.co-ode.org/ontologies/ont.owl#workComposedBy"/>
-    <sp:object rdf:parseType="Resource">
-      <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-      >composer</sp:varName>
-    </sp:object>
   </rdf:Description>
   <rdf:Description rdf:nodeID="A16">
-    <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >work</sp:varName>
-  </rdf:Description>
-  <sp:Values rdf:nodeID="A17">
-    <sp:bindings rdf:parseType="Resource">
-      <rdf:rest rdf:parseType="Resource">
-        <rdf:rest rdf:nodeID="A14"/>
-        <rdf:first rdf:parseType="Collection">
-          <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#prefLabel"/>
-        </rdf:first>
-      </rdf:rest>
-      <rdf:first rdf:parseType="Collection">
-        <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#label"/>
-      </rdf:first>
-    </sp:bindings>
-    <sp:varNames rdf:nodeID="A9"/>
-  </sp:Values>
-  <rdf:Description rdf:nodeID="A18">
-    <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >work</sp:varName>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A19">
-    <rdf:first rdf:nodeID="A0"/>
-    <rdf:rest rdf:nodeID="A6"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A20">
-    <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >composer</sp:varName>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A21">
-    <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >composer</sp:varName>
-  </rdf:Description>
-  <sp:Values rdf:nodeID="A22">
-    <sp:varNames rdf:parseType="Resource">
-      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-      >cLabel</rdf:first>
-      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-    </sp:varNames>
-    <sp:bindings rdf:nodeID="A19"/>
-  </sp:Values>
-  <rdf:Description rdf:about="http://spinrdf.org/spin#SelectTemplates">
-    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >TODO: Recreate SortComposerWorksByID</owl:versionInfo>
-    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >TODO: Make FilterClassMembersByLabel</owl:versionInfo>
-    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >TODO: FindClassMembersWithoutPredicate (generalize composers without works, works without musicBrainzURIs)</owl:versionInfo>
-    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >TODO: COUNT counterparts of filter templates</owl:versionInfo>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A23">
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-    <rdf:first rdf:nodeID="A11"/>
-  </rdf:Description>
-  <sp:Select rdf:nodeID="A24">
-    <sp:orderBy rdf:parseType="Resource">
-      <rdf:rest rdf:nodeID="A23"/>
-      <rdf:first rdf:nodeID="A2"/>
-    </sp:orderBy>
-    <sp:resultVariables rdf:parseType="Resource">
-      <rdf:rest rdf:parseType="Resource">
-        <rdf:rest rdf:nodeID="A12"/>
-        <rdf:first rdf:nodeID="A16"/>
-      </rdf:rest>
-      <rdf:first rdf:nodeID="A21"/>
-    </sp:resultVariables>
-    <sp:distinct rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
-    >true</sp:distinct>
-    <sp:where rdf:parseType="Collection">
-      <rdf:Description>
-        <sp:object rdf:parseType="Resource">
-          <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-          >composer</sp:varName>
-        </sp:object>
-        <sp:predicate rdf:resource="http://www.co-ode.org/ontologies/ont.owl#workComposedBy"/>
-        <sp:subject rdf:nodeID="A18"/>
-      </rdf:Description>
-      <sp:Optional rdf:nodeID="A3"/>
-      <rdf:Description>
-        <sp:object rdf:parseType="Resource">
-          <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-          >cValue</sp:varName>
-        </sp:object>
-        <sp:predicate rdf:parseType="Resource">
-          <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-          >cLabel</sp:varName>
-        </sp:predicate>
-        <sp:subject rdf:nodeID="A13"/>
-      </rdf:Description>
-      <sp:Values rdf:nodeID="A17"/>
-      <sp:Filter>
-        <sp:expression rdf:nodeID="A7"/>
-      </sp:Filter>
-    </sp:where>
-  </sp:Select>
-  <rdf:Description rdf:nodeID="A25">
-    <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >cValue</sp:varName>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A26">
-    <sp:subject rdf:parseType="Resource">
+    <rdf:first rdf:parseType="Resource">
       <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-      >work</sp:varName>
-    </sp:subject>
-    <sp:predicate rdf:parseType="Resource">
-      <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-      >wLabel</sp:varName>
-    </sp:predicate>
-    <sp:object rdf:parseType="Resource">
-      <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-      >wValue</sp:varName>
-    </sp:object>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A27">
+      >composer</sp:varName>
+    </rdf:first>
     <rdf:rest rdf:parseType="Collection">
       <rdf:Description>
         <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
         >work</sp:varName>
       </rdf:Description>
+      <rdf:Description>
+        <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >id</sp:varName>
+      </rdf:Description>
     </rdf:rest>
-    <rdf:first rdf:nodeID="A20"/>
   </rdf:Description>
-  <spin:SelectTemplate rdf:about="http://www.w3.org/2002/07/owl#FilterComposerWorks">
+  <spin:SelectTemplate rdf:about="http://www.w3.org/2002/07/owl#SortComposerWorksByID">
     <rdfs:subClassOf rdf:resource="http://spinrdf.org/spin#SelectTemplates"/>
     <spin:constraint>
       <spl:Argument>
         <spl:predicate rdf:resource="http://spinrdf.org/arg#cRegex"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >Regex for composer to match.</rdfs:comment>
-        <spl:valueType rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-      </spl:Argument>
-    </spin:constraint>
-    <spin:constraint>
-      <spl:Argument>
-        <spl:predicate rdf:resource="http://spinrdf.org/arg#wRegex"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >Regex for work to match.</rdfs:comment>
+        >regex for composer to match</rdfs:comment>
         <spl:valueType rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
       </spl:Argument>
     </spin:constraint>
     <spin:body>
       <sp:Select>
         <sp:where rdf:parseType="Resource">
-          <rdf:first rdf:nodeID="A15"/>
           <rdf:rest rdf:parseType="Resource">
-            <rdf:first rdf:nodeID="A26"/>
-            <rdf:rest rdf:parseType="Resource">
-              <rdf:first rdf:parseType="Resource">
-                <sp:subject rdf:nodeID="A8"/>
-                <sp:predicate rdf:parseType="Resource">
-                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                  >cLabel</sp:varName>
-                </sp:predicate>
-                <sp:object rdf:nodeID="A25"/>
-              </rdf:first>
-              <rdf:rest rdf:parseType="Resource">
-                <rdf:first rdf:nodeID="A1"/>
-                <rdf:rest rdf:parseType="Resource">
-                  <rdf:first rdf:nodeID="A22"/>
-                  <rdf:rest rdf:parseType="Resource">
-                    <rdf:first>
-                      <sp:Filter>
-                        <sp:expression>
-                          <sp:regex>
-                            <sp:arg1 rdf:nodeID="A5"/>
-                            <sp:arg2 rdf:parseType="Resource">
-                              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                              >cRegex</sp:varName>
-                            </sp:arg2>
-                          </sp:regex>
-                        </sp:expression>
-                      </sp:Filter>
-                    </rdf:first>
-                    <rdf:rest rdf:nodeID="A10"/>
-                  </rdf:rest>
-                </rdf:rest>
-              </rdf:rest>
-            </rdf:rest>
+            <rdf:rest rdf:nodeID="A15"/>
+            <rdf:first rdf:nodeID="A0"/>
           </rdf:rest>
+          <rdf:first rdf:parseType="Resource">
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >work</sp:varName>
+            </sp:subject>
+            <sp:predicate rdf:resource="http://www.co-ode.org/ontologies/ont.owl#workComposedBy"/>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >composer</sp:varName>
+            </sp:object>
+          </rdf:first>
         </sp:where>
         <sp:distinct rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
         >true</sp:distinct>
-        <sp:resultVariables rdf:nodeID="A27"/>
+        <sp:resultVariables rdf:nodeID="A16"/>
+        <sp:orderBy rdf:parseType="Resource">
+          <rdf:first rdf:nodeID="A8"/>
+          <rdf:rest rdf:nodeID="A9"/>
+        </sp:orderBy>
       </sp:Select>
     </spin:body>
   </spin:SelectTemplate>
-  <spin:SelectTemplate rdf:about="http://www.w3.org/2002/07/owl#SortComposerWorksByID">
-    <spin:body rdf:nodeID="A24"/>
-    <spin:constraint>
-      <spl:Argument>
-        <spl:valueType rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >regex for composer to match</rdfs:comment>
-        <spl:predicate rdf:resource="http://spinrdf.org/arg#cRegex"/>
-      </spl:Argument>
-    </spin:constraint>
+  <rdf:Description rdf:nodeID="A17">
+    <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >work</sp:varName>
+  </rdf:Description>
+  <spl:Argument rdf:nodeID="A18">
+    <spl:valueType rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Regex for composer to match.</rdfs:comment>
+    <spl:predicate rdf:resource="http://spinrdf.org/arg#cRegex"/>
+  </spl:Argument>
+  <rdf:Description rdf:nodeID="A19">
+    <sp:object rdf:parseType="Resource">
+      <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+      >composer</sp:varName>
+    </sp:object>
+    <sp:predicate rdf:resource="http://www.co-ode.org/ontologies/ont.owl#workComposedBy"/>
+    <sp:subject rdf:parseType="Resource">
+      <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+      >work</sp:varName>
+    </sp:subject>
+  </rdf:Description>
+  <spl:Argument rdf:nodeID="A20">
+    <spl:valueType rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Regex for work to match.</rdfs:comment>
+    <spl:predicate rdf:resource="http://spinrdf.org/arg#wRegex"/>
+  </spl:Argument>
+  <rdf:Description rdf:nodeID="A21">
+    <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >cLabel</sp:varName>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A22">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:nodeID="A17"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A23">
+    <rdf:rest rdf:parseType="Resource">
+      <rdf:rest rdf:nodeID="A12"/>
+      <rdf:first rdf:parseType="Resource">
+        <sp:object rdf:parseType="Resource">
+          <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >cValue</sp:varName>
+        </sp:object>
+        <sp:predicate rdf:nodeID="A21"/>
+        <sp:subject rdf:parseType="Resource">
+          <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >composer</sp:varName>
+        </sp:subject>
+      </rdf:first>
+    </rdf:rest>
+    <rdf:first rdf:parseType="Resource">
+      <sp:object rdf:parseType="Resource">
+        <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >wValue</sp:varName>
+      </sp:object>
+      <sp:predicate rdf:parseType="Resource">
+        <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >wLabel</sp:varName>
+      </sp:predicate>
+      <sp:subject rdf:parseType="Resource">
+        <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >work</sp:varName>
+      </sp:subject>
+    </rdf:first>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A24">
+    <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >i</sp:varName>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A25">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:nodeID="A24"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A26">
+    <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >composer</sp:varName>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A27">
+    <rdf:first rdf:nodeID="A26"/>
+    <rdf:rest rdf:nodeID="A22"/>
+  </rdf:Description>
+  <spl:Argument rdf:nodeID="A28">
+    <spl:valueType rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Class whose members' labels should match</rdfs:comment>
+    <spl:predicate rdf:resource="http://spinrdf.org/arg#class"/>
+  </spl:Argument>
+  <sp:Select rdf:nodeID="A29">
+    <sp:resultVariables rdf:nodeID="A25"/>
+    <sp:distinct rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</sp:distinct>
+    <sp:where rdf:nodeID="A14"/>
+  </sp:Select>
+  <sp:Select rdf:nodeID="A30">
+    <sp:resultVariables rdf:nodeID="A27"/>
+    <sp:distinct rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</sp:distinct>
+    <sp:where rdf:parseType="Resource">
+      <rdf:rest rdf:nodeID="A23"/>
+      <rdf:first rdf:nodeID="A19"/>
+    </sp:where>
+  </sp:Select>
+  <spin:SelectTemplate rdf:about="http://www.w3.org/2002/07/owl#FilterComposerWorks">
+    <spin:body rdf:nodeID="A30"/>
+    <spin:constraint rdf:nodeID="A20"/>
+    <spin:constraint rdf:nodeID="A18"/>
+    <rdfs:subClassOf rdf:resource="http://spinrdf.org/spin#SelectTemplates"/>
+  </spin:SelectTemplate>
+  <spin:SelectTemplate rdf:about="http://www.w3.org/2002/07/owl#FilterClassInstancesByLabel">
+    <spin:body rdf:nodeID="A29"/>
+    <spin:constraint rdf:nodeID="A13"/>
+    <spin:constraint rdf:nodeID="A28"/>
     <rdfs:subClassOf rdf:resource="http://spinrdf.org/spin#SelectTemplates"/>
   </spin:SelectTemplate>
 </rdf:RDF>
