@@ -45,6 +45,7 @@
   <ont:Cruft rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork003138"/>
   <owl:SortComposerWorksByID rdf:about="http://www.w3.org/2002/07/owl#SortComposerWorksByID_1"/>
   <owl:CountClassInstancesWithoutProperty rdf:about="http://www.w3.org/2002/07/owl#CountClassInstancesWithoutProperty_1"/>
+  <ont:Cruft rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork002172"/>
   <rdf:Description rdf:about="http://spinrdf.org/spin#query">
     <spin:query>
       <sp:Select>
