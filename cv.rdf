@@ -40,16 +40,10 @@
     <rdfs:subPropertyOf rdf:resource="http://spinrdf.org/sp#arg"/>
   </rdf:Property>
   <ont:Cruft rdf:about="http://www.co-ode.org/ontologies/ont.owl#Composer005493"/>
-  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork011065">
-    <owl:differentFrom rdf:resource="http://imslp.org/wiki/Nocturne_symphonique,_Op.43,_BV_262_(Busoni,_Ferruccio)"/>
-  </rdf:Description>
   <owl:FilterComposerWorks rdf:about="http://www.w3.org/2002/07/owl#FilterComposerWorks_1"/>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork006987">
     <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >TODO: This is eff'd up. musicBrainzURI is for one piece, dbpediaURI for another, and an imslpURI for each of them.</owl:versionInfo>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork005416">
-    <owl:differentFrom rdf:resource="http://imslp.org/wiki/Piano_Sonata_No.4_(Bax,_Arnold)"/>
   </rdf:Description>
   <ont:Cruft rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork000199"/>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001266">
@@ -57,28 +51,9 @@
     >TODO: split (merged because imslp pages refer to same wikipedia page)</owl:versionInfo>
     <owl:differentFrom rdf:resource="http://imslp.org/wiki/Klavierwerke_(Pachelbel,_Johann)"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork005276">
-    <owl:differentFrom rdf:resource="http://imslp.org/wiki/Violin_Sonata_in_A_major,_K.402/385e_(Mozart,_Wolfgang_Amadeus)"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork005559">
-    <owl:differentFrom rdf:resource="http://imslp.org/wiki/3_Piano_Trios,_Hob.XV:27-29_(Haydn,_Joseph)"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork005445">
-    <owl:differentFrom rdf:resource="http://imslp.org/wiki/Lemminkäinen&apos;s_Return,_Op.22_No.4_(Sibelius,_Jean)"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork010010">
-    <owl:differentFrom rdf:resource="http://imslp.org/wiki/Kammermusik_No.7,_Op.46_No.2_(Hindemith,_Paul)"/>
-    <owl:differentFrom rdf:resource="http://imslp.org/wiki/Organ_Sonata_No.2_(Hindemith,_Paul)"/>
-    <owl:differentFrom rdf:resource="http://imslp.org/wiki/Violin_Sonata,_Op.31_No.2_(Hindemith,_Paul)"/>
-    <owl:differentFrom rdf:resource="http://imslp.org/wiki/String_Trio_No.2_(Hindemith,_Paul)"/>
-    <owl:differentFrom rdf:resource="http://imslp.org/wiki/Kleine_Sonate,_Op.25_No.2_(Hindemith,_Paul)"/>
-    <owl:differentFrom rdf:resource="http://imslp.org/wiki/Violin_Sonata,_Op.11_No.2_(Hindemith,_Paul)"/>
     <ont:imslpURI rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >http://imslp.org/wiki/Kammermusik_No.2,_Op.36_No.1_(Hindemith,_Paul)</ont:imslpURI>
-    <owl:differentFrom rdf:resource="http://imslp.org/wiki/Lieder_für_Singkreise,_Op.43_No.2_(Hindemith,_Paul)"/>
-    <owl:differentFrom rdf:resource="http://imslp.org/wiki/Piano_Sonata_No.2_(Hindemith,_Paul)"/>
-    <owl:differentFrom rdf:resource="http://imslp.org/wiki/Kammermusik_No.3,_Op.36_No.2_(Hindemith,_Paul)"/>
-    <owl:differentFrom rdf:resource="http://imslp.org/wiki/Kleine_Kammermusik,_Op.24_No.2_(Hindemith,_Paul)"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork005496">
     <owl:differentFrom rdf:resource="http://imslp.org/wiki/3_Piano_Trios,_Hob.XV:6-8_(Op.43)_(Haydn,_Joseph)"/>
@@ -95,19 +70,18 @@
     <owl:differentFrom rdf:resource="http://imslp.org/wiki/Froher_Tag,_verlangte_Stunden,_BWV_Anh.18_(Bach,_Johann_Sebastian)"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork002571">
+    <owl:differentFrom rdf:resource="http://imslp.org/wiki/Symphony_No.3,_Op.10_(Dvořák,_Antonín)"/>
     <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >TODO: split off (see differentThan) catalog ID = "10". gotta love it.</owl:versionInfo>
-    <owl:differentFrom rdf:resource="http://imslp.org/wiki/Symphony_No.3,_Op.10_(Dvořák,_Antonín)"/>
   </rdf:Description>
   <ont:Cruft rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork000116"/>
-  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork005215">
-    <owl:differentFrom rdf:resource="http://imslp.org/wiki/Violin_Sonata_No.1_(Honegger,_Arthur)"/>
-    <owl:differentFrom rdf:resource="http://imslp.org/wiki/String_Quartet_No.1_(Honegger,_Arthur)"/>
-  </rdf:Description>
   <ont:Cruft rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001110"/>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork013850">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Grouped work for a CD may not be useful for us</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork005361">
+    <owl:sameAs rdf:resource="http://imslp.org/wiki/Symphony_No.3,_Op.10_(Dvořák,_Antonín)"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork005352">
     <owl:sameAs rdf:resource="http://imslp.org/wiki/Mouvement_Symphonique_No.3_(Honegger,_Arthur)"/>
@@ -119,17 +93,11 @@
   <ont:Cruft rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork000115"/>
   <ont:Cruft rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork002473"/>
   <owl:FindClassInstancesWithoutProperty rdf:about="http://www.w3.org/2002/07/owl#FindClassInstancesWithoutProperty_1"/>
-  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork005353">
-    <owl:differentFrom rdf:resource="http://imslp.org/wiki/Piano_Sonata_No.3_(Bax,_Arnold)"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001494">
     <owl:differentFrom rdf:resource="http://imslp.org/wiki/Romanian_Folk_Dances_(orchestra),_Sz.68_(Bartók,_Béla)"/>
   </rdf:Description>
   <ont:Cruft rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork000114"/>
   <ont:Cruft rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork002474"/>
-  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork005273">
-    <owl:differentFrom rdf:resource="http://imslp.org/wiki/Violin_Sonata_in_E-flat_major,_K.380/374f_(Mozart,_Wolfgang_Amadeus)"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork008128">
     <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >TODO: split off http://imslp.org/wiki/Capriccio_sopra_un_tema_della_'Niobe',_Op.22_(Piatti,_Alfredo_Carlo) (see differentFrom)</owl:versionInfo>
@@ -149,17 +117,6 @@
     <owl:differentFrom rdf:resource="http://imslp.org/wiki/Biblical_Songs,_Op.99_(Dvořák,_Antonín)"/>
   </rdf:Description>
   <ont:Cruft rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork003092"/>
-  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork005324">
-    <owl:differentFrom rdf:resource="http://imslp.org/wiki/Violin_Sonata_in_C_major,_K.403/385c_(Mozart,_Wolfgang_Amadeus)"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork004219">
-    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >split! bitten by the No. bug again.</owl:versionInfo>
-    <owl:differentFrom rdf:resource="http://imslp.org/wiki/String_Quartet_No.7,_Op.90_No.1_(Rubinstein,_Anton)"/>
-    <owl:differentFrom rdf:resource="http://imslp.org/wiki/String_Quartet_No.4,_Op.47_No.1_(Rubinstein,_Anton)"/>
-    <owl:differentFrom rdf:resource="http://imslp.org/wiki/String_Quartet_No.1,_Op.17_No.1_(Rubinstein,_Anton)"/>
-    <owl:differentFrom rdf:resource="http://imslp.org/wiki/Piano_Trio_No.1,_Op.15_No.1_(Rubinstein,_Anton)"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork010504">
     <owl:differentFrom rdf:resource="http://imslp.org/wiki/Symphony_No.8,_Op.88_(Dvořák,_Antonín)"/>
   </rdf:Description>
@@ -171,18 +128,8 @@
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork006136">
     <owl:differentFrom rdf:resource="http://imslp.org/wiki/Tantum_ergo_in_D_major,_K.197/Anh.C_3.05_(Mozart,_Wolfgang_Amadeus)"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork004936">
-    <owl:differentFrom rdf:resource="http://imslp.org/wiki/Violin_Sonata_No.1_(Ravel,_Maurice)"/>
-    <owl:differentFrom rdf:resource="http://imslp.org/wiki/Daphnis_et_Chloé_Suite_No.1_(Ravel,_Maurice)"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork006140">
-    <owl:differentFrom rdf:resource="http://imslp.org/wiki/Daphnis_et_Chloé_Suite_No.2_(Ravel,_Maurice)"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork006135">
     <owl:differentFrom rdf:resource="http://imslp.org/wiki/Tantum_ergo_in_B-flat_major,_K.142/Anh.C_3.04_(Mozart,_Wolfgang_Amadeus)"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork005327">
-    <owl:differentFrom rdf:resource="http://imslp.org/wiki/Allegro_in_B-flat_major,_K.372_(Mozart,_Wolfgang_Amadeus)"/>
   </rdf:Description>
   <owl:CountClassInstancesWithoutProperty rdf:about="http://www.w3.org/2002/07/owl#CountClassInstancesWithoutProperty_1"/>
   <ont:Cruft rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork002172"/>
@@ -449,9 +396,6 @@
   <ont:Cruft rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork005855"/>
   <ont:Cruft rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001655"/>
   <ont:Cruft rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork002720"/>
-  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork005315">
-    <owl:differentFrom rdf:resource="http://imslp.org/wiki/Dance_Intermezzo,_Op.45_No.2_(Sibelius,_Jean)"/>
-  </rdf:Description>
   <ont:Cruft rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001277"/>
   <ont:Cruft rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork005854"/>
   <rdf:Description rdf:nodeID="A0">
