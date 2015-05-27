@@ -1241,6 +1241,27 @@
     <spin:constraint rdf:nodeID="A25"/>
     <spin:body rdf:nodeID="A43"/>
   </spin:SelectTemplate>
+  <ont:Cruft rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork005999"/>
+  <ont:Cruft rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork004853"/>
+  <ont:Cruft rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork003677"/>
+  <ont:Cruft rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork006234"/>
+  <ont:Cruft rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork004794"/>
+  <ont:Cruft rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork003679"/>
+  <ont:Cruft rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork004712"/>
+  <ont:Cruft rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork002017"/>
+  <ont:Cruft rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork006239"/>
+  <ont:Cruft rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork006238"/>
+  <ont:Cruft rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork005991"/>
+  <ont:Cruft rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork004808"/>
+  <ont:Cruft rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001093"/>
+  <ont:Cruft rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001576"/>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001117">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Not sure if we should include artificial groupings like this</rdfs:comment>
+  </rdf:Description>
+  <ont:Cruft rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork006200"/>
+  <ont:Cruft rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001595"/>
+  <ont:Cruft rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001119"/>
+  <ont:Cruft rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001929"/>
+  <ont:Cruft rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001573"/>
 </rdf:RDF>
-
-<!-- Created with TopBraid -->
