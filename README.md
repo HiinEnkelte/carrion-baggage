@@ -115,6 +115,7 @@ An Eclipse project allowing us to edit our ontology in TopBraid Composer.
 
   * Right-click on CVProject in Navigator pane (bottom left)
   * Team > Pull
+  * If the pull brought anything down, then do File > Restart
 
 ### Back out changes without committing
 
@@ -159,8 +160,9 @@ If a save fails (see above), or if you made changes and then changed your mind, 
 
 When I created a conflict, I got a message in a pop-up window called
 "Push Results", saying my push had been "[rejected - non-fast-forward]".
-If this happens:
+You may encounter this or other errors.  If you get an error:
 
+  * Commit patch file
   * Right-click on CVProject
   * Team > Commit...
   * In the "Commit changes" dialog:
@@ -169,7 +171,6 @@ If this happens:
     * Click "Commit and Push"
     * Email me
     * If you want to keep editing, create and commit more patch files
-    * **DON'T PULL** until I tell you the conflicts have been resolved!
 
 #### 4. If no conflict, you can delete your patch file(s)
 
