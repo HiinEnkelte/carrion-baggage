@@ -86,14 +86,6 @@
     >2015</ont:yearComposed>
     <ont:workComposedBy rdf:resource="http://www.co-ode.org/ontologies/ont.owl#AkihoAndy"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork000206">
-    <owl:sameAs>
-      <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork000207">
-        <ont:imslpURI rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >http://imslp.org/wiki/Brandenburg_Concertos,_BWV_1046-51_(Bach,_Johann_Sebastian)</ont:imslpURI>
-      </rdf:Description>
-    </owl:sameAs>
-  </rdf:Description>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork010504">
     <owl:differentFrom rdf:resource="http://imslp.org/wiki/Symphony_No.8,_Op.88_(Dvořák,_Antonín)"/>
   </rdf:Description>

@@ -33,6 +33,17 @@
     >Under Lighted Coffers</rdfs:label>
     <rdf:type rdf:resource="http://purl.org/ontology/mo/MusicalWork"/>
   </ont:HandEntered>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork006054">
+    <sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork054424"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork000206">
+    <sameAs>
+      <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork000207">
+        <ont:imslpURI rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >http://imslp.org/wiki/Brandenburg_Concertos,_BWV_1046-51_(Bach,_Johann_Sebastian)</ont:imslpURI>
+      </rdf:Description>
+    </sameAs>
+  </rdf:Description>
 </rdf:RDF>
 
 <!-- Created with TopBraid -->
