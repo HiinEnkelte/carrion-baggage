@@ -3,11 +3,12 @@
     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
     xmlns:dc="http://purl.org/dc/elements/1.1/"
     xmlns:dbpedia="http://dbpedia.org/resource/"
+    xmlns:wikidata="http://www.wikidata.org/entity/"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:spin="http://spinrdf.org/spin#"
     xmlns:foaf="http://xmlns.com/foaf/0.1/"
     xmlns:sp="http://spinrdf.org/sp#"
-    xmlns="http://www.w3.org/2002/07/owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
     xmlns:arg="http://spinrdf.org/arg#"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
     xmlns:ont="http://www.co-ode.org/ontologies/ont.owl#"
@@ -16,33 +17,531 @@
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns:spl="http://spinrdf.org/spl#"
   xml:base="http://www.co-ode.org/ontologies/cv/works">
-  <Ontology rdf:about="">
-    <imports rdf:resource="http://www.co-ode.org/ontologies/cv/works2"/>
-    <imports rdf:resource="http://www.co-ode.org/ontologies/cv/works1"/>
-    <imports rdf:resource="http://www.co-ode.org/ontologies/cv/composers"/>
-    <imports rdf:resource="http://www.co-ode.org/ontologies/cv/tbox"/>
-    <imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
-    <imports rdf:resource="http://spinrdf.org/spin"/>
+  <owl:Ontology rdf:about="">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1.1.3</owl:versionInfo>
     <rdfs:comment>Repaired IMSLurP bug, split into smaller imported
         files. -kk 5/18/2015</rdfs:comment>
-    <versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >1.1.3</versionInfo>
-  </Ontology>
-  <ont:HandEntered rdf:about="http://purl.org/ontology/mo/UnderLightedCoffers">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Under Lighted Coffers</rdfs:label>
-    <rdf:type rdf:resource="http://purl.org/ontology/mo/MusicalWork"/>
-  </ont:HandEntered>
-  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork006054">
-    <sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork054424"/>
+    <owl:imports rdf:resource="http://spinrdf.org/spin"/>
+    <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+    <owl:imports rdf:resource="http://www.co-ode.org/ontologies/cv/tbox"/>
+    <owl:imports rdf:resource="http://www.co-ode.org/ontologies/cv/composers"/>
+    <owl:imports rdf:resource="http://www.co-ode.org/ontologies/cv/works1"/>
+    <owl:imports rdf:resource="http://www.co-ode.org/ontologies/cv/works2"/>
+  </owl:Ontology>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001268">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork063678"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork000206">
-    <sameAs>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork010568">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork004873"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork009451">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork013208"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork004079">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork088414"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork011617">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork003878"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork005111">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork103108"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork007349">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork042623"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork003704">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork003703"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork005345">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork076806"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork012488">
+    <owl:sameAs>
       <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork000207">
         <ont:imslpURI rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
         >http://imslp.org/wiki/Brandenburg_Concertos,_BWV_1046-51_(Bach,_Johann_Sebastian)</ont:imslpURI>
       </rdf:Description>
-    </sameAs>
+    </owl:sameAs>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork011544">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork003198"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork008107">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork090587"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork010743">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork078168"/>
+  </rdf:Description>
+  <mo:MusicalWork rdf:about="http://purl.org/ontology/mo/UnderLightedCoffers">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Under Lighted Coffers</rdfs:label>
+    <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#HandEntered"/>
+  </mo:MusicalWork>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork002584">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork092620"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001373">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork065497"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork010550">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork016000"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork000741">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork075597"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork008501">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork000207"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork000920">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork100605"/>
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork098910"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork009209">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork046523"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork005058">
+    <owl:sameAs>
+      <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork004779">
+        <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork074387"/>
+      </rdf:Description>
+    </owl:sameAs>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork012691">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork066898"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork011535">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001922"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork008003">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork060730"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork007966">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork054264"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork014373">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork043308"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork008402">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork004136"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork015413">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001623"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork009115">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork028169"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork004927">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork077975"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork006160">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork097130"/>
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork066066"/>
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork029913"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork003736">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001138"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork013420">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork003878"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork011348">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork004136"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork003323">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork053223"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork003177">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork031280"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork000531">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork100521"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork009808">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork070045"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork013700">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork046523"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001013">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork070326"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork013664">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork046523"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork006596">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork021422"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork004077">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork060590"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork010869">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork004873"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork007214">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork070045"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork002206">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork078146"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork012437">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001623"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork006122">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork034726"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001914">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork062938"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork013472">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork022482"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork000086">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork089342"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork006411">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001922"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork002754">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork016940"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork011526">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork048756"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork014179">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork034412"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork010209">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001623"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork013852">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork003878"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork009536">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001623"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork009160">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork042197"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork012639">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork016000"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork009494">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001623"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork003166">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork091350"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork007452">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork003878"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork011166">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork003878"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork006980">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork077980"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork007132">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork078168"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork013213">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork030876"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork009542">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork100908"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork012212">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork048756"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork015044">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork092867"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork003381">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork066898"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork014628">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001623"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork014615">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork052577"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001597">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork027880"/>
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork047765"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork002471">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork031691"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork008562">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork004136"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork006852">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork031691"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork005563">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork103801"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork014601">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork100908"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork009349">
+    <owl:sameAs>
+      <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork008359">
+        <owl:sameAs>
+          <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork013046">
+            <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork054142"/>
+          </rdf:Description>
+        </owl:sameAs>
+      </rdf:Description>
+    </owl:sameAs>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork009332">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork046523"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork009759">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001623"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork012225">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork026410"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork002309">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork078359"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001294">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork079421"/>
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork091297"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork014219">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork060272"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork013678">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork090587"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork011425">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001623"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork011945">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork042623"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork003607">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork038749"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork007001">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork032243"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork008052">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork000207"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork008026">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork077980"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork007182">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork022452"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork012232">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork054264"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork005533">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork049197"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork006745">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork022309"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork006158">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork052729"/>
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork045609"/>
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork094386"/>
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork024178"/>
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork014595"/>
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork014970"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork013824">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork036939"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork013288">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork087095"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork004696">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork067982"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork015256">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork090587"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork008781">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork022482"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork010280">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork004873"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork012975">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork000207"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork004370">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork070711"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork007711">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork052532"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork002755">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork038711"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork014378">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork032243"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork010633">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork092867"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork011365">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork013208"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork012472">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork056680"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork011819">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork056680"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork005198">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork103873"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork011588">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork033136"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork005337">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork103861"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork004773">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork083932"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork006320">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork060272"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork010997">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork099757"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork015311">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork051018"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork014481">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001138"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork012848">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork028169"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork006065">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork077816"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork009183">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork000207"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork011418">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork060730"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork013245">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork032243"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork012453">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork087095"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork002423">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork028839"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001281">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork014230"/>
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork066516"/>
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork028054"/>
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork051528"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork013836">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork043308"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork008599">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork003878"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork010566">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork034412"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork000338">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork016965"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork008024">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork003198"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork004588">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork103768"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork006638">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001623"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork010660">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork021135"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork009128">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork030876"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork005203">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork103839"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork002748">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork027724"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork012849">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001623"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork006621">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork099522"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork003534">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork053414"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork012615">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork046523"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork014624">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork074771"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001341">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork062766"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork007608">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork033136"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork006948">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork036939"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork006744">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork000207"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork006536">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork022309"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork014189">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork052577"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork003428">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork070817"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork004752">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork003404"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork003184">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork062510"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork008168">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork075597"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork008989">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork046523"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork006159">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork022455"/>
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork057700"/>
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork066139"/>
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork088251"/>
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork072238"/>
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork046039"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork007324">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork028169"/>
   </rdf:Description>
 </rdf:RDF>
 
