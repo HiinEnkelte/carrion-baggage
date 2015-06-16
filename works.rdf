@@ -145,11 +145,11 @@
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork011348">
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork004136"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork003323">
-    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork053223"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork003177">
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork031280"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork003323">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork053223"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork000531">
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork100521"/>
@@ -216,9 +216,6 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork009536">
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001623"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork009160">
-    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork042197"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork012639">
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork016000"/>
