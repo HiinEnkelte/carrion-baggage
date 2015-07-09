@@ -18,23 +18,25 @@
     xmlns:spl="http://spinrdf.org/spl#"
   xml:base="http://www.co-ode.org/ontologies/cv/works">
   <owl:Ontology rdf:about="">
-    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >1.1.3</owl:versionInfo>
+    <owl:imports rdf:resource="http://www.co-ode.org/ontologies/cv/works2"/>
+    <owl:imports rdf:resource="http://www.co-ode.org/ontologies/cv/works1"/>
+    <owl:imports rdf:resource="http://www.co-ode.org/ontologies/cv/composers"/>
+    <owl:imports rdf:resource="http://www.co-ode.org/ontologies/cv/tbox"/>
+    <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+    <owl:imports rdf:resource="http://spinrdf.org/spin"/>
     <rdfs:comment>Repaired IMSLurP bug, split into smaller imported
         files. -kk 5/18/2015</rdfs:comment>
-    <owl:imports rdf:resource="http://spinrdf.org/spin"/>
-    <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
-    <owl:imports rdf:resource="http://www.co-ode.org/ontologies/cv/tbox"/>
-    <owl:imports rdf:resource="http://www.co-ode.org/ontologies/cv/composers"/>
-    <owl:imports rdf:resource="http://www.co-ode.org/ontologies/cv/works1"/>
-    <owl:imports rdf:resource="http://www.co-ode.org/ontologies/cv/works2"/>
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1.1.3</owl:versionInfo>
   </owl:Ontology>
   <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Steelpan">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Idiophone"/>
     <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Steelpan</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Idiophone"/>
   </owl:Class>
-  <rdf:Property rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasFeaturedInstrumentOrVoice">
+  <rdf:Property rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasFeaturedPerformer">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >TODO: move me to T rex, I mean T box!</owl:versionInfo>
     <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >featured instrument or voice</rdfs:label>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -91,20 +93,20 @@ Finally, note that this property relates the ScoringOfMusicalWork, not the Music
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork010743">
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork078168"/>
   </rdf:Description>
-  <mo:MusicalWork rdf:about="http://purl.org/ontology/mo/UnderLightedCoffers">
-    <ont:hasMusicalScoring>
-      <ont:HandEntered rdf:about="http://purl.org/dc/elements/1.1/ScoringOfUnderLightedCoffers_1">
-        <ont:hasScoreComponent rdf:resource="http://www.co-ode.org/ontologies/ont.owl#SymphonyOrchestra"/>
-        <ont:hasFeaturedInstrumentOrVoice rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Steelpan"/>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >Scoring of under lighted coffers 1</rdfs:label>
-        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#ScoringOfMusicalWork"/>
-      </ont:HandEntered>
-    </ont:hasMusicalScoring>
+  <ont:HandEntered rdf:about="http://purl.org/ontology/mo/UnderLightedCoffers">
     <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Under Lighted Coffers</rdfs:label>
-    <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#HandEntered"/>
-  </mo:MusicalWork>
+    <ont:hasMusicalScoring>
+      <ont:ScoringOfMusicalWork rdf:about="http://purl.org/dc/elements/1.1/ScoringOfUnderLightedCoffers_1">
+        <ont:hasFeaturedPerformer rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Steelpan"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Scoring of under lighted coffers 1</rdfs:label>
+        <ont:hasScoreComponent rdf:resource="http://www.co-ode.org/ontologies/ont.owl#SymphonyOrchestra"/>
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#HandEntered"/>
+      </ont:ScoringOfMusicalWork>
+    </ont:hasMusicalScoring>
+    <rdf:type rdf:resource="http://purl.org/ontology/mo/MusicalWork"/>
+  </ont:HandEntered>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork002584">
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork092620"/>
   </rdf:Description>
@@ -121,8 +123,8 @@ Finally, note that this property relates the ScoringOfMusicalWork, not the Music
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork000207"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork000920">
-    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork100605"/>
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork098910"/>
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork100605"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork009209">
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork046523"/>
@@ -159,9 +161,9 @@ Finally, note that this property relates the ScoringOfMusicalWork, not the Music
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork077975"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork006160">
-    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork097130"/>
-    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork066066"/>
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork029913"/>
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork066066"/>
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork097130"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork003736">
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001138"/>
@@ -284,8 +286,8 @@ Finally, note that this property relates the ScoringOfMusicalWork, not the Music
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork052577"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001597">
-    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork027880"/>
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork047765"/>
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork027880"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork002471">
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork031691"/>
@@ -326,8 +328,8 @@ Finally, note that this property relates the ScoringOfMusicalWork, not the Music
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork078359"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001294">
-    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork079421"/>
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork091297"/>
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork079421"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork014219">
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork060272"/>
@@ -366,12 +368,12 @@ Finally, note that this property relates the ScoringOfMusicalWork, not the Music
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork022309"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork006158">
-    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork052729"/>
-    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork045609"/>
-    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork094386"/>
-    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork024178"/>
-    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork014595"/>
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork014970"/>
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork014595"/>
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork024178"/>
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork094386"/>
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork045609"/>
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork052729"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork013824">
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork036939"/>
@@ -464,10 +466,10 @@ Finally, note that this property relates the ScoringOfMusicalWork, not the Music
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork028839"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001281">
-    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork014230"/>
-    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork066516"/>
-    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork028054"/>
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork051528"/>
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork028054"/>
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork066516"/>
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork014230"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork013836">
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork043308"/>
@@ -548,12 +550,12 @@ Finally, note that this property relates the ScoringOfMusicalWork, not the Music
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork046523"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork006159">
-    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork022455"/>
-    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork057700"/>
-    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork066139"/>
-    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork088251"/>
-    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork072238"/>
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork046039"/>
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork072238"/>
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork088251"/>
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork066139"/>
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork057700"/>
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork022455"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork007324">
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork028169"/>
