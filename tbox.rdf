@@ -7,7 +7,7 @@
     xmlns:spin="http://spinrdf.org/spin#"
     xmlns:foaf="http://xmlns.com/foaf/0.1/"
     xmlns:sp="http://spinrdf.org/sp#"
-    xmlns="http://www.w3.org/2002/07/owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
     xmlns:arg="http://spinrdf.org/arg#"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
     xmlns:ont="http://www.co-ode.org/ontologies/ont.owl#"
@@ -16,673 +16,215 @@
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns:spl="http://spinrdf.org/spl#"
   xml:base="http://www.co-ode.org/ontologies/cv/tbox">
-  <Ontology rdf:about="">
-    <versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >1.1.2</versionInfo>
-    <imports rdf:resource="http://spinrdf.org/spin"/>
-    <imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <owl:Ontology rdf:about="">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Refactored out classes and properties 5/13/15; added classes and properties to handle IMSL(ur)P data 5/16/15. -kk</rdfs:comment>
-  </Ontology>
+    <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+    <owl:imports rdf:resource="http://spinrdf.org/spin"/>
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1.1.2</owl:versionInfo>
+  </owl:Ontology>
   <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
   <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#integer"/>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Drum">
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Drum">
     <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#PercussionInstrument"/>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#PercussionInstrument"/>
     </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SopranoSinger">
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SopranoSinger">
     <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#FemaleSinger"/>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#FemaleSinger"/>
     </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#WoodwindInstrument">
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#WoodwindInstrument">
     <rdfs:subClassOf>
-      <Class rdf:about="http://purl.org/ontology/mo/InstrumentalMusician"/>
+      <owl:Class rdf:about="http://purl.org/ontology/mo/InstrumentalMusician"/>
     </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://purl.org/ontology/mo/Performance">
+  </owl:Class>
+  <owl:Class rdf:about="http://purl.org/ontology/mo/Performance">
     <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
     >http://musicontology.com/specification/</rdfs:isDefinedBy>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SoundProductionEvent"/>
+    </owl:disjointWith>
     <rdfs:subClassOf>
-      <Restriction>
-        <qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</qualifiedCardinality>
-        <onClass>
-          <Class rdf:about="http://purl.org/ontology/mo/MusicalWork"/>
-        </onClass>
-        <onProperty>
-          <FunctionalProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#performanceOf"/>
-        </onProperty>
-      </Restriction>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#performanceOf"/>
+        </owl:onProperty>
+        <owl:onClass>
+          <owl:Class rdf:about="http://purl.org/ontology/mo/MusicalWork"/>
+        </owl:onClass>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:qualifiedCardinality>
+      </owl:Restriction>
     </rdfs:subClassOf>
-    <disjointWith>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SoundProductionEvent"/>
-    </disjointWith>
-    <disjointWith>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Agent"/>
-    </disjointWith>
-    <disjointWith>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#GroupedMusicalEvents"/>
-    </disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Agent"/>
+    </owl:disjointWith>
     <rdfs:subClassOf>
-      <Restriction>
-        <someValuesFrom>
-          <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Performer"/>
-        </someValuesFrom>
-        <onProperty>
-          <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#performedBy"/>
-        </onProperty>
-      </Restriction>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasPerformedPart"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SoundProductionEvent"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
     </rdfs:subClassOf>
-    <disjointWith>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalEvent"/>
-    </disjointWith>
-    <disjointWith>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalGenre"/>
-    </disjointWith>
-    <disjointWith>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ScoringOfMusicalWork"/>
-    </disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#GroupedMusicalEvents"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalEvent"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#performedBy"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Performer"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalGenre"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ScoringOfMusicalWork"/>
+    </owl:disjointWith>
     <rdfs:comment>Each instance of Performance is an individual performance of a single MusicalWork, by a set of one or more Performers.  If a concert is repeated, then there's a separate instance of Performance for each time the MusicalWork is played.</rdfs:comment>
-    <rdfs:subClassOf>
-      <Restriction>
-        <someValuesFrom>
-          <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SoundProductionEvent"/>
-        </someValuesFrom>
-        <onProperty>
-          <InverseFunctionalProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasPerformedPart"/>
-        </onProperty>
-      </Restriction>
-    </rdfs:subClassOf>
-    <disjointWith>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Location"/>
-    </disjointWith>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Agent">
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Location"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Agent">
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#GroupedMusicalEvents"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Location"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalEvent"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalGenre"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ScoringOfMusicalWork"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SoundProductionEvent"/>
+    </owl:disjointWith>
     <rdfs:comment>A class subsuming humans and organizations, here in the context of the creation and performance of MusicalWorks.  This class is mostly a handy grouping that enables us to make a few useful statements (e.g., Agents are disjiont from MusicalWorks and Perfomances).</rdfs:comment>
-    <disjointWith>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SoundProductionEvent"/>
-    </disjointWith>
-    <disjointWith>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ScoringOfMusicalWork"/>
-    </disjointWith>
-    <disjointWith>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalGenre"/>
-    </disjointWith>
-    <disjointWith>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalEvent"/>
-    </disjointWith>
-    <disjointWith>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Location"/>
-    </disjointWith>
-    <disjointWith>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#GroupedMusicalEvents"/>
-    </disjointWith>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#BassDrum">
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#BassDrum">
     <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Drum"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SingleReedInstrument">
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SingleReedInstrument">
     <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ReedInstrument"/>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ReedInstrument"/>
     </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Mandolin">
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Mandolin">
     <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#PluckedStringInstrument"/>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#PluckedStringInstrument"/>
     </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWorkCatalog">
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWorkCatalog">
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#OrderedCollection"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Whistler">
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Whistler">
     <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#OtherProducerOfSound"/>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#OtherProducerOfSound"/>
     </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#DanceGroup">
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#DanceGroup">
     <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#GroupPerformer"/>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#GroupPerformer"/>
     </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#IndividualPerformer">
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#IndividualPerformer">
     <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Performer"/>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Performer"/>
     </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#NationalistRomanticGenre">
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#NationalistRomanticGenre">
     <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#RomanticGenre"/>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#RomanticGenre"/>
     </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Xylophone">
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Xylophone">
     <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Idiophone"/>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Idiophone"/>
     </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#StringQuartetEnsemble">
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#StringQuartetEnsemble">
     <rdfs:subClassOf>
-      <Restriction>
-        <someValuesFrom>
-          <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#StringQuartetWork"/>
-        </someValuesFrom>
-        <onProperty>
-          <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#performerOfWork"/>
-        </onProperty>
-      </Restriction>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ChamberEnsemble"/>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ChamberEnsemble"/>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#performerOfWork"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#StringQuartetWork"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
     </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Accordion">
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Accordion">
     <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#KeyboardInstrument"/>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#KeyboardInstrument"/>
     </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#InstrumentalMusicalWork">
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#InstrumentalMusicalWork">
     <rdfs:subClassOf>
-      <Class rdf:about="http://purl.org/ontology/mo/MusicalWork"/>
+      <owl:Class rdf:about="http://purl.org/ontology/mo/MusicalWork"/>
     </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#FemaleSinger">
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#FemaleSinger">
     <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Singer"/>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Singer"/>
     </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ChamberEnsemble">
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ChamberEnsemble">
     <rdfs:subClassOf>
-      <Class rdf:about="http://purl.org/ontology/mo/MusicGroup"/>
+      <owl:Class rdf:about="http://purl.org/ontology/mo/MusicGroup"/>
     </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#AltoRecorder">
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#AltoRecorder">
     <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Recorder"/>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Recorder"/>
     </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Bassoon">
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Bassoon">
     <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#DoubleReedInstrument"/>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#DoubleReedInstrument"/>
     </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Saxophone">
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Saxophone">
     <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#SingleReedInstrument"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#DoubleReedInstrument">
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#DoubleReedInstrument">
     <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ReedInstrument"/>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ReedInstrument"/>
     </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Narrator">
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Narrator">
     <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Speaker"/>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Speaker"/>
     </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Tuba">
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Tuba">
     <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#BrassInstrument"/>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#BrassInstrument"/>
     </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Performer">
-    <disjointUnionOf rdf:parseType="Collection">
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#GroupPerformer"/>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#IndividualPerformer"/>
-    </disjointUnionOf>
-    <rdfs:comment>Performer is essentially the subclass of Agents who are "on stage", taking part in a Performance of a MusicalWork (possibly we will need to allow for Performers who are spatially or temporally displaced; this is an edge case, however).  Instances include musicians, conductors, dancers, and groups of these.
-
-The class Performer is slightly "overloaded", in that it is also intended to represent the kinds of Performaers that a ScoringOfMusicalWork calls for, in gneral and in the abstract, without reference to any specific named individual Performer.  Thus a violin concerto has a ScoringOfMusicalWork that hasScoreComponent some (unspecified) SymphonyOrchestra, and also hasScoreComponent some (unspecified) Violin.</rdfs:comment>
-    <rdfs:subClassOf>
-      <Restriction>
-        <someValuesFrom>
-          <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SoundProductionEvent"/>
-        </someValuesFrom>
-        <onProperty>
-          <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#performanceOfPart"/>
-        </onProperty>
-      </Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Agent"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SopraninoRecorder">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Recorder"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Harp">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#PluckedStringInstrument"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#BowedStringInstrument">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#StringInstrument"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://spinrdf.org/spl#Argument"/>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#MaleSinger">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Singer"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Marimba">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Idiophone"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://purl.org/ontology/mo/MusicalWork">
-    <disjointWith rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Agent"/>
-    <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-    >http://musicontology.com/specification/</rdfs:isDefinedBy>
-    <disjointWith>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalEvent"/>
-    </disjointWith>
-    <disjointWith>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ScoringOfMusicalWork"/>
-    </disjointWith>
-    <disjointWith>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Location"/>
-    </disjointWith>
-    <disjointWith>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#GroupedMusicalEvents"/>
-    </disjointWith>
-    <rdfs:comment>The class of musical compositions, in the abstract, not as manifested in individual Performances.  There are some borderline cases of what constitutes a distinct MusicalWork: ranging from slight differences in performance (transposition, playing a harpsichord piece on a modern piano), to substantially different arrangements (orchestrating a piano piece for full orchestra), to loose adaptations (one composer's variations on another's theme).  We will probably just try to be practical rather than punctilious regarding these cases.</rdfs:comment>
-    <disjointWith>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalGenre"/>
-    </disjointWith>
-    <disjointWith rdf:resource="http://purl.org/ontology/mo/Performance"/>
-    <disjointWith>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SoundProductionEvent"/>
-    </disjointWith>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Trombone">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#BrassInstrument"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#WagnerTuba">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#BrassInstrument"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Bell">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Idiophone"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#OrchestralWork">
-    <rdfs:subClassOf>
-      <Restriction>
-        <qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</qualifiedCardinality>
-        <onClass>
-          <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SymphonyOrchestra"/>
-        </onClass>
-        <onProperty>
-          <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#workHasPerformer"/>
-        </onProperty>
-      </Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#InstrumentalMusicalWork"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Piccolo">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#TransverseAerophoneWoodwindInstrument"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Flute">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#TransverseAerophoneWoodwindInstrument"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Cymbal">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Idiophone"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ElectricStringInstrument">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#StringInstrument"/>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ElectronicInstrument"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ScoringOfMusicalWork">
-    <rdfs:comment>Every MusicalWork is assumed to scored for some specified combination of instrumentalists, voices, or other performers producing sound.  Members of this class represent those combinations, each one being relatied to a set of Performers via the hasScoreComponent property.
-
-A MusicalWork can have more than one ScoringOfMusicalWork.  For example, there might be a version of a work for piano, and another for orchestra.  These might sometimes correspond to different versions of a work by the same composer, or to arrangements of one composer's work by another.
-
-As with any attempt to distinguish between two versions of the same work and two similar, yet distinct, works, there will be some borderline cases that are arguable.  We will let practical concerns guide us in such cases.</rdfs:comment>
-    <disjointWith>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SoundProductionEvent"/>
-    </disjointWith>
-    <rdfs:subClassOf>
-      <Restriction>
-        <someValuesFrom rdf:resource="http://purl.org/ontology/mo/MusicalWork"/>
-        <onProperty>
-          <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#musicalScoringOf"/>
-        </onProperty>
-      </Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <Restriction>
-        <onProperty>
-          <rdf:Property rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasScoreComponent"/>
-        </onProperty>
-        <someValuesFrom>
-          <Restriction>
-            <onProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-            <someValuesFrom rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Performer"/>
-          </Restriction>
-        </someValuesFrom>
-      </Restriction>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#BrassInstrument">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://purl.org/ontology/mo/InstrumentalMusician"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://spinrdf.org/sp#regex"/>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Violin">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#BowedStringInstrument"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#PerformingArtsOrganization">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Agent"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#LateRomanticGenre">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#RomanticGenre"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#TenorRecorder">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Recorder"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ElectronicGenre">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ModernGenre"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ContraltoSinger">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#FemaleSinger"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SerialGenre">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ModernGenre"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Clapper">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#OtherProducerOfSound"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#KeyboardInstrument">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://purl.org/ontology/mo/InstrumentalMusician"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ReedInstrument">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#WoodwindInstrument"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Opera">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#VocalMusicalWork"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Viola">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#BowedStringInstrument"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#IMSLPTimePeriod">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#IMSLPPieceStyle"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Speaker">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#IndividualPerformer"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Conductor">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://purl.org/ontology/mo/MusicArtist"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Organ">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#KeyboardInstrument"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#MinimalistGenre">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ModernGenre"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#GroupedMusicalEvents">
-    <rdfs:comment>Instances of this class are groups of MusicalEvents that are related in some fashion that's meaningful and useful.  For instance, it often happens that the same, or nearly the same, concernt is presented multiple times.  Each of those is a distinct MusicalEvent (you could buy a ticket for each).  However, since (near) identical concerts are often listed together, it's useful to represent these multiple presentations as well, and GroupedMusicalEvents serves this purpose, relating the group to the individual MusicalEvents via the property musicalEventGroupHasMember.
-
-It might be possible to use this class to represent groups of events like concert series, whole season, events sharing a performer, and so on.  This should be decided later.</rdfs:comment>
-    <disjointWith>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SoundProductionEvent"/>
-    </disjointWith>
-    <disjointWith rdf:resource="http://www.co-ode.org/ontologies/ont.owl#ScoringOfMusicalWork"/>
-    <disjointWith>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalGenre"/>
-    </disjointWith>
-    <disjointWith>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalEvent"/>
-    </disjointWith>
-    <disjointWith>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Location"/>
-    </disjointWith>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#RomanticGenre">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalGenre"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Harpsichord">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#KeyboardInstrument"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Clarinet">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#SingleReedInstrument"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Glockenspiel">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Idiophone"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#VocalMusicalWork">
-    <rdfs:subClassOf rdf:resource="http://purl.org/ontology/mo/MusicalWork"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#BaritoneSinger">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MaleSinger"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#PercussionInstrument">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://purl.org/ontology/mo/InstrumentalMusician"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalEvent">
-    <rdfs:comment>A MusicalEvent is a concert or similar presentation of one or more MusicalWorks, each work performed constituting an instance of Performance.  (Preformances of operas or ballets aren't typically called concerts, hence the slightly clumsy term MusicalEvent is used for this class.)
-
-Note that members of this class have a specific date, time, and venue; they are events that you'd buy a ticket for.  If the same, or nearly the same, program is presented multiple times, then each of those is a distinct MusicalEvent (you could buy a ticket for each).  However, since (near) identical concerts are often listed together, it's useful to represent these multiple presentations as well -- use GroupedMusicalEvents for this purpose.</rdfs:comment>
-    <disjointWith>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SoundProductionEvent"/>
-    </disjointWith>
-    <disjointWith rdf:resource="http://www.co-ode.org/ontologies/ont.owl#ScoringOfMusicalWork"/>
-    <disjointWith>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalGenre"/>
-    </disjointWith>
-    <rdfs:subClassOf>
-      <Restriction>
-        <someValuesFrom rdf:resource="http://purl.org/ontology/mo/Performance"/>
-        <onProperty>
-          <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#eventHasPerformance"/>
-        </onProperty>
-      </Restriction>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ElectricBass">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#ElectricStringInstrument"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ElectronicInstrument">
-    <rdfs:comment>This class is meant to include all musical sound production via an electronic instrument, broadly defined, such as a synthesizer or an electric guitar.</rdfs:comment>
-    <rdfs:subClassOf>
-      <Class rdf:about="http://purl.org/ontology/mo/InstrumentalMusician"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ElectricGuitar">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Guitar"/>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#ElectricStringInstrument"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Cello">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#BowedStringInstrument"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#AerophoneWoodwindInstrument">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#WoodwindInstrument"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#IMSLPCategory">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#IMSLPPieceStyle">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#IMSLPCategory"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Lute">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#PluckedStringInstrument"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#BassRecorder">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Recorder"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Cruft">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#TransverseAerophoneWoodwindInstrument">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#AerophoneWoodwindInstrument"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Dancer">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#IndividualPerformer"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SoloInstrumentalWork">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#InstrumentalMusicalWork"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#HandEntered">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWorkWithDance">
-    <rdfs:subClassOf rdf:resource="http://purl.org/ontology/mo/MusicalWork"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ChamberMusicWork">
-    <rdfs:subClassOf>
-      <Restriction>
-        <someValuesFrom rdf:resource="http://www.co-ode.org/ontologies/ont.owl#ChamberEnsemble"/>
-        <onProperty>
-          <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#workHasPerformer"/>
-        </onProperty>
-      </Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#InstrumentalMusicalWork"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#NeoRomanticGenre">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ModernGenre"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#VenueForPerformance">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Location"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#MicrotonalGenre">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ModernGenre"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Celesta">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#KeyboardInstrument"/>
-    <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Idiophone"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#TwelveToneGenre">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#SerialGenre"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Oboe">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#DoubleReedInstrument"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#AcousticGuitar">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Guitar"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Idiophone">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#PercussionInstrument"/>
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Somehat technical term for the class of percussion instruments with which a sound is produced by striking a solid body, rather than a membrane or string.</rdfs:comment>
-  </Class>
-  <Class rdf:about="http://spinrdf.org/sp#notExists"/>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Concerto">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#OrchestralWork"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#EflatClarinet">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Clarinet"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Synthesizer">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#ElectronicInstrument"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Trumpet">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#BrassInstrument"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#CountertenorSinger">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MaleSinger"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#BaroqueGenre">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalGenre"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ChoralWork">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#VocalMusicalWork"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#StringInstrument">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://purl.org/ontology/mo/InstrumentalMusician"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Singer">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://purl.org/ontology/mo/MusicArtist"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ViolaDaGamba">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#BowedStringInstrument"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Cornet">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#BrassInstrument"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Ballet">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWorkWithDance"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SnareDrum">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Drum"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalGenre">
-    <rdfs:comment>MusicalGenre is a pretty vague term here, meant to capture something about the style and period of a MusicalWork that establishes some idea of its character.  It is meant to cut across the various categories of MusicalWork; for example, there are Romantic and TwelveTone String Quartets, Symphonies, Operas, and SongCycles.  The various subclasses of MusicalGenre aren't intended to be mutually exclusive, and a given MusicalWork could be assigned to more than one genre (though many combinations would be nonsensical).</rdfs:comment>
-    <disjointWith>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SoundProductionEvent"/>
-    </disjointWith>
-    <disjointWith rdf:resource="http://www.co-ode.org/ontologies/ont.owl#ScoringOfMusicalWork"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#AvantGardeGenre">
-    <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ModernGenre"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Piano">
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Performer">
     <spin:rule>
       <sp:Modify>
         <sp:where rdf:parseType="Collection">
@@ -719,10 +261,12 @@ Note that members of this class have a specific date, time, and venue; they are 
               >tag</sp:varName>
             </sp:object>
             <sp:predicate>
-              <AnnotationProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#imslpTags">
-                <rdfs:domain rdf:resource="http://purl.org/ontology/mo/MusicalWork"/>
+              <owl:AnnotationProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#imslpTags">
                 <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-              </AnnotationProperty>
+                <rdfs:domain>
+                  <owl:Class rdf:about="http://purl.org/ontology/mo/MusicalWork"/>
+                </rdfs:domain>
+              </owl:AnnotationProperty>
             </sp:predicate>
             <sp:subject rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -735,15 +279,13 @@ Note that members of this class have a specific date, time, and venue; they are 
               >regex</sp:varName>
             </sp:object>
             <sp:predicate>
-              <AnnotationProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#imslpTagRegex">
+              <owl:AnnotationProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#imslpTagRegex">
                 <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-                <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                >imslp tag regex</rdfs:label>
-              </AnnotationProperty>
+              </owl:AnnotationProperty>
             </sp:predicate>
             <sp:subject rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >performer</sp:varName>
+              >performertype</sp:varName>
             </sp:subject>
           </rdf:Description>
           <sp:Filter>
@@ -767,10 +309,10 @@ Note that members of this class have a specific date, time, and venue; they are 
               <rdf:Description>
                 <sp:object rdf:parseType="Resource">
                   <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                  >performer</sp:varName>
+                  >performertype</sp:varName>
                 </sp:object>
                 <sp:predicate>
-                  <rdf:Property rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasFeaturedPerformerType"/>
+                  <rdf:Property rdf:about="http://www.co-ode.org/ontologies/ont.owl#workHasFeaturedPerformerType"/>
                 </sp:predicate>
                 <sp:subject rdf:parseType="Resource">
                   <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -786,352 +328,662 @@ Note that members of this class have a specific date, time, and venue; they are 
         </sp:insertPattern>
       </sp:Modify>
     </spin:rule>
-    <ont:imslpTagRegex rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >\\bpf\\b</ont:imslpTagRegex>
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#KeyboardInstrument"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SopranoRecorder">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Agent"/>
     <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Recorder"/>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#performanceOfPart"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SoundProductionEvent"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
     </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SoloVocalWork">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#VocalMusicalWork"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Theremin">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#ElectronicInstrument"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#AltoFlute">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#TransverseAerophoneWoodwindInstrument"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#FrenchHorn">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#BrassInstrument"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Vibraphone">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Idiophone"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#DoubleBass">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#BowedStringInstrument"/>
-  </Class>
-  <Class rdf:about="http://purl.org/ontology/mo/MusicGroup">
+    <rdfs:comment>Performer is essentially the subclass of Agents who are "on stage", taking part in a Performance of a MusicalWork (possibly we will need to allow for Performers who are spatially or temporally displaced; this is an edge case, however).  Instances include musicians, conductors, dancers, and groups of these.
+
+The class Performer is slightly "overloaded", in that it is also intended to represent the kinds of Performaers that a ScoringOfMusicalWork calls for, in gneral and in the abstract, without reference to any specific named individual Performer.  Thus a violin concerto has a ScoringOfMusicalWork that hasScoreComponent some (unspecified) SymphonyOrchestra, and also hasScoreComponent some (unspecified) Violin.</rdfs:comment>
+    <owl:disjointUnionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#GroupPerformer"/>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#IndividualPerformer"/>
+    </owl:disjointUnionOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SopraninoRecorder">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Recorder"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Harp">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#PluckedStringInstrument"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#BowedStringInstrument">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#StringInstrument"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://spinrdf.org/spl#Argument"/>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#MaleSinger">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Singer"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Marimba">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Idiophone"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://purl.org/ontology/mo/MusicalWork">
+    <owl:disjointWith rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Agent"/>
     <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
     >http://musicontology.com/specification/</rdfs:isDefinedBy>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalEvent"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ScoringOfMusicalWork"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Location"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#GroupedMusicalEvents"/>
+    </owl:disjointWith>
+    <rdfs:comment>The class of musical compositions, in the abstract, not as manifested in individual Performances.  There are some borderline cases of what constitutes a distinct MusicalWork: ranging from slight differences in performance (transposition, playing a harpsichord piece on a modern piano), to substantially different arrangements (orchestrating a piano piece for full orchestra), to loose adaptations (one composer's variations on another's theme).  We will probably just try to be practical rather than punctilious regarding these cases.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalGenre"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="http://purl.org/ontology/mo/Performance"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SoundProductionEvent"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Trombone">
     <rdfs:subClassOf>
-      <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#GroupPerformer"/>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#BrassInstrument"/>
     </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Composer">
-    <rdfs:comment>Composer is the class of composers of MusicalWorks.  Composers are related to the works they compose by the properties composerOfWork and workComposedBy.  We will assume that members of this class are individual humans (there are a few cases of compositions written by committees, and music composed by computer software, which we will disregard).  There are some compositions whose composers aren't known, so there will be a special instance of this class called Anonymous, and possibly others like it (e.g. TraditionalHungarianFolksong).  For works composed by one individual and arranged by another, use the separate properties arrangerOfWork/workArrangedBy.  For works like operas or ballets, where there is additional creative input from librettists or choreographers, there are additional classes and properties.</rdfs:comment>
-    <disjointWith rdf:resource="http://www.co-ode.org/ontologies/ont.owl#PerformingArtsOrganization"/>
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Agent"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#OperaCompany">
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#WagnerTuba">
     <rdfs:subClassOf>
-      <Restriction>
-        <someValuesFrom rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Opera"/>
-        <onProperty>
-          <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#performerOfWork"/>
-        </onProperty>
-      </Restriction>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#BrassInstrument"/>
     </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="http://purl.org/ontology/mo/MusicGroup"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Location">
-    <rdfs:comment>Locations can be georgraphical (cities, counties, university campuses, neighborhoods, etc.) or more specific venues, such as concert halls, opera houses, or churches.</rdfs:comment>
-    <disjointWith rdf:resource="http://www.co-ode.org/ontologies/ont.owl#ScoringOfMusicalWork"/>
-    <disjointWith rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalGenre"/>
-    <disjointWith rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalEvent"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Contrabassoon">
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#DoubleReedInstrument"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SymphonyOrchestra">
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Bell">
     <rdfs:subClassOf>
-      <Restriction>
-        <someValuesFrom rdf:resource="http://www.co-ode.org/ontologies/ont.owl#OrchestralWork"/>
-        <onProperty>
-          <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#performerOfWork"/>
-        </onProperty>
-      </Restriction>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Idiophone"/>
     </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="http://purl.org/ontology/mo/MusicGroup"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ViolaDAmore">
-    <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
-    >http://en.wikipedia.org/wiki/Viola_d%27amore</rdfs:seeAlso>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#OrchestralWork">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#InstrumentalMusicalWork"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#workHasPerformer"/>
+        </owl:onProperty>
+        <owl:onClass>
+          <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SymphonyOrchestra"/>
+        </owl:onClass>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:qualifiedCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Piccolo">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#TransverseAerophoneWoodwindInstrument"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Flute">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#TransverseAerophoneWoodwindInstrument"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Cymbal">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Idiophone"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ElectricStringInstrument">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ElectronicInstrument"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#StringInstrument"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ScoringOfMusicalWork">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <rdf:Property rdf:about="http://www.co-ode.org/ontologies/ont.owl#workHasPerformerType"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Restriction>
+            <owl:someValuesFrom rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Performer"/>
+            <owl:onProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+          </owl:Restriction>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#musicalScoringOf"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="http://purl.org/ontology/mo/MusicalWork"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SoundProductionEvent"/>
+    </owl:disjointWith>
+    <rdfs:comment>Every MusicalWork is assumed to scored for some specified combination of instrumentalists, voices, or other performers producing sound.  Members of this class represent those combinations, each one being relatied to a set of Performers via the hasScoreComponent property.
+
+A MusicalWork can have more than one ScoringOfMusicalWork.  For example, there might be a version of a work for piano, and another for orchestra.  These might sometimes correspond to different versions of a work by the same composer, or to arrangements of one composer's work by another.
+
+As with any attempt to distinguish between two versions of the same work and two similar, yet distinct, works, there will be some borderline cases that are arguable.  We will let practical concerns guide us in such cases.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#BrassInstrument">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://purl.org/ontology/mo/InstrumentalMusician"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://spinrdf.org/sp#regex"/>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Violin">
     <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#BowedStringInstrument"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#PerformingArtsOrganization">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Agent"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#LateRomanticGenre">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#RomanticGenre"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#TenorRecorder">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Recorder"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ElectronicGenre">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ModernGenre"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ContraltoSinger">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#FemaleSinger"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SerialGenre">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ModernGenre"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Clapper">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#OtherProducerOfSound"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#KeyboardInstrument">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://purl.org/ontology/mo/InstrumentalMusician"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ReedInstrument">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#WoodwindInstrument"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Opera">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#VocalMusicalWork"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Viola">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#BowedStringInstrument"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#IMSLPTimePeriod">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#IMSLPPieceStyle"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Speaker">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#IndividualPerformer"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Conductor">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://purl.org/ontology/mo/MusicArtist"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Organ">
+    <ont:imslpTagRegex rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >\borg\b</ont:imslpTagRegex>
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#KeyboardInstrument"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#MinimalistGenre">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ModernGenre"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#GroupedMusicalEvents">
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Location"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalEvent"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalGenre"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="http://www.co-ode.org/ontologies/ont.owl#ScoringOfMusicalWork"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SoundProductionEvent"/>
+    </owl:disjointWith>
+    <rdfs:comment>Instances of this class are groups of MusicalEvents that are related in some fashion that's meaningful and useful.  For instance, it often happens that the same, or nearly the same, concernt is presented multiple times.  Each of those is a distinct MusicalEvent (you could buy a ticket for each).  However, since (near) identical concerts are often listed together, it's useful to represent these multiple presentations as well, and GroupedMusicalEvents serves this purpose, relating the group to the individual MusicalEvents via the property musicalEventGroupHasMember.
+
+It might be possible to use this class to represent groups of events like concert series, whole season, events sharing a performer, and so on.  This should be decided later.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#RomanticGenre">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalGenre"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Harpsichord">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#KeyboardInstrument"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Clarinet">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#SingleReedInstrument"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Glockenspiel">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Idiophone"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#VocalMusicalWork">
+    <rdfs:subClassOf rdf:resource="http://purl.org/ontology/mo/MusicalWork"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#BaritoneSinger">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MaleSinger"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#PercussionInstrument">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://purl.org/ontology/mo/InstrumentalMusician"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalEvent">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#eventHasPerformance"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="http://purl.org/ontology/mo/Performance"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalGenre"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="http://www.co-ode.org/ontologies/ont.owl#ScoringOfMusicalWork"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SoundProductionEvent"/>
+    </owl:disjointWith>
+    <rdfs:comment>A MusicalEvent is a concert or similar presentation of one or more MusicalWorks, each work performed constituting an instance of Performance.  (Preformances of operas or ballets aren't typically called concerts, hence the slightly clumsy term MusicalEvent is used for this class.)
+
+Note that members of this class have a specific date, time, and venue; they are events that you'd buy a ticket for.  If the same, or nearly the same, program is presented multiple times, then each of those is a distinct MusicalEvent (you could buy a ticket for each).  However, since (near) identical concerts are often listed together, it's useful to represent these multiple presentations as well -- use GroupedMusicalEvents for this purpose.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ElectricBass">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#ElectricStringInstrument"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ElectronicInstrument">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://purl.org/ontology/mo/InstrumentalMusician"/>
+    </rdfs:subClassOf>
+    <rdfs:comment>This class is meant to include all musical sound production via an electronic instrument, broadly defined, such as a synthesizer or an electric guitar.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ElectricGuitar">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#ElectricStringInstrument"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Guitar"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Cello">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#BowedStringInstrument"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#AerophoneWoodwindInstrument">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#WoodwindInstrument"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#IMSLPCategory">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#IMSLPPieceStyle">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#IMSLPCategory"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Lute">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#PluckedStringInstrument"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#BassRecorder">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Recorder"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Cruft">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#TransverseAerophoneWoodwindInstrument">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#AerophoneWoodwindInstrument"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Dancer">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#IndividualPerformer"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SoloInstrumentalWork">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#InstrumentalMusicalWork"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#HandEntered">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWorkWithDance">
+    <rdfs:subClassOf rdf:resource="http://purl.org/ontology/mo/MusicalWork"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ChamberMusicWork">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#InstrumentalMusicalWork"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#workHasPerformer"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="http://www.co-ode.org/ontologies/ont.owl#ChamberEnsemble"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#NeoRomanticGenre">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ModernGenre"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#VenueForPerformance">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Location"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#MicrotonalGenre">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ModernGenre"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Celesta">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Idiophone"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#KeyboardInstrument"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#TwelveToneGenre">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#SerialGenre"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Oboe">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#DoubleReedInstrument"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#AcousticGuitar">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Guitar"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Idiophone">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Somehat technical term for the class of percussion instruments with which a sound is produced by striking a solid body, rather than a membrane or string.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#PercussionInstrument"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://spinrdf.org/sp#notExists"/>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Concerto">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#OrchestralWork"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#EflatClarinet">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Clarinet"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Synthesizer">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#ElectronicInstrument"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Trumpet">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#BrassInstrument"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#CountertenorSinger">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MaleSinger"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#BaroqueGenre">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalGenre"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ChoralWork">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#VocalMusicalWork"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#StringInstrument">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://purl.org/ontology/mo/InstrumentalMusician"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Singer">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://purl.org/ontology/mo/MusicArtist"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ViolaDaGamba">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#BowedStringInstrument"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Cornet">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#BrassInstrument"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Ballet">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWorkWithDance"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SnareDrum">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Drum"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalGenre">
+    <owl:disjointWith rdf:resource="http://www.co-ode.org/ontologies/ont.owl#ScoringOfMusicalWork"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SoundProductionEvent"/>
+    </owl:disjointWith>
+    <rdfs:comment>MusicalGenre is a pretty vague term here, meant to capture something about the style and period of a MusicalWork that establishes some idea of its character.  It is meant to cut across the various categories of MusicalWork; for example, there are Romantic and TwelveTone String Quartets, Symphonies, Operas, and SongCycles.  The various subclasses of MusicalGenre aren't intended to be mutually exclusive, and a given MusicalWork could be assigned to more than one genre (though many combinations would be nonsensical).</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#AvantGardeGenre">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ModernGenre"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Piano">
+    <ont:imslpTagRegex rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >\bpf\b</ont:imslpTagRegex>
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#KeyboardInstrument"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SopranoRecorder">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Recorder"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SoloVocalWork">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#VocalMusicalWork"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Theremin">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#ElectronicInstrument"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#AltoFlute">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#TransverseAerophoneWoodwindInstrument"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#FrenchHorn">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#BrassInstrument"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Vibraphone">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Idiophone"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#DoubleBass">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#BowedStringInstrument"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://purl.org/ontology/mo/MusicGroup">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#GroupPerformer"/>
+    </rdfs:subClassOf>
+    <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://musicontology.com/specification/</rdfs:isDefinedBy>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Composer">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Agent"/>
+    <owl:disjointWith rdf:resource="http://www.co-ode.org/ontologies/ont.owl#PerformingArtsOrganization"/>
+    <rdfs:comment>Composer is the class of composers of MusicalWorks.  Composers are related to the works they compose by the properties composerOfWork and workComposedBy.  We will assume that members of this class are individual humans (there are a few cases of compositions written by committees, and music composed by computer software, which we will disregard).  There are some compositions whose composers aren't known, so there will be a special instance of this class called Anonymous, and possibly others like it (e.g. TraditionalHungarianFolksong).  For works composed by one individual and arranged by another, use the separate properties arrangerOfWork/workArrangedBy.  For works like operas or ballets, where there is additional creative input from librettists or choreographers, there are additional classes and properties.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#OperaCompany">
+    <rdfs:subClassOf rdf:resource="http://purl.org/ontology/mo/MusicGroup"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#performerOfWork"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Opera"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Location">
+    <owl:disjointWith rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalEvent"/>
+    <owl:disjointWith rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalGenre"/>
+    <owl:disjointWith rdf:resource="http://www.co-ode.org/ontologies/ont.owl#ScoringOfMusicalWork"/>
+    <rdfs:comment>Locations can be georgraphical (cities, counties, university campuses, neighborhoods, etc.) or more specific venues, such as concert halls, opera houses, or churches.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Contrabassoon">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#DoubleReedInstrument"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SymphonyOrchestra">
+    <rdfs:subClassOf rdf:resource="http://purl.org/ontology/mo/MusicGroup"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#performerOfWork"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="http://www.co-ode.org/ontologies/ont.owl#OrchestralWork"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ViolaDAmore">
     <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
     >Viola d'Amore</rdfs:label>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#BflatClarinet">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#BowedStringInstrument"/>
+    <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://en.wikipedia.org/wiki/Viola_d%27amore</rdfs:seeAlso>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#BflatClarinet">
     <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Clarinet"/>
-  </Class>
-  <Class rdf:about="http://purl.org/ontology/mo/InstrumentalMusician">
-    <rdfs:comment>As a subclass of MusicArtist and ultimately of Agent, this class has instances intended to represent the Performers playing instruments in a MusicalWork.  To avoid clumsy names, the subclasses are named by instruments and families of instruments, but keep in mind that, e.g., the subclass Flute actually denotes the class of fl(a)utists, Violin the class of violinists, etc.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="http://purl.org/ontology/mo/InstrumentalMusician">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://purl.org/ontology/mo/MusicArtist"/>
+    </rdfs:subClassOf>
     <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
     >http://musicontology.com</rdfs:isDefinedBy>
-    <rdfs:subClassOf>
-      <Class rdf:about="http://purl.org/ontology/mo/MusicArtist"/>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ElectricViolin">
+    <rdfs:comment>As a subclass of MusicArtist and ultimately of Agent, this class has instances intended to represent the Performers playing instruments in a MusicalWork.  To avoid clumsy names, the subclasses are named by instruments and families of instruments, but keep in mind that, e.g., the subclass Flute actually denotes the class of fl(a)utists, Violin the class of violinists, etc.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ElectricViolin">
     <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#ElectricStringInstrument"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Recorder">
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Recorder">
     <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#AerophoneWoodwindInstrument"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ModernGenre">
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ModernGenre">
     <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalGenre"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#BassClarinet">
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#BassClarinet">
     <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Clarinet"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#StringQuartetWork">
-    <rdfs:subClassOf>
-      <Restriction>
-        <qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</qualifiedCardinality>
-        <onClass rdf:resource="http://www.co-ode.org/ontologies/ont.owl#StringQuartetEnsemble"/>
-        <onProperty>
-          <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#workHasPerformer"/>
-        </onProperty>
-      </Restriction>
-    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#StringQuartetWork">
     <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#ChamberMusicWork"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#GeographicalLocation">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#workHasPerformer"/>
+        </owl:onProperty>
+        <owl:onClass rdf:resource="http://www.co-ode.org/ontologies/ont.owl#StringQuartetEnsemble"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:qualifiedCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#GeographicalLocation">
     <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Location"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ClassicalGenre">
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ClassicalGenre">
     <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalGenre"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Duplicate">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Duplicate">
     <spin:rule>
       <sp:Modify>
-        <sp:deletePattern rdf:parseType="Collection">
-          <sp:NamedGraph>
-            <sp:graphNameNode rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >g1</sp:varName>
-            </sp:graphNameNode>
-            <sp:elements rdf:parseType="Collection">
-              <rdf:Description>
-                <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
-                <sp:predicate rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
-                <sp:object rdf:parseType="Resource">
-                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                  >label</sp:varName>
-                </sp:object>
-              </rdf:Description>
-            </sp:elements>
-          </sp:NamedGraph>
-        </sp:deletePattern>
-        <sp:insertPattern rdf:parseType="Collection">
-          <sp:NamedGraph>
-            <sp:graphNameNode rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >g2</sp:varName>
-            </sp:graphNameNode>
-            <sp:elements rdf:parseType="Collection">
-              <rdf:Description>
-                <sp:subject rdf:parseType="Resource">
-                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                  >other</sp:varName>
-                </sp:subject>
-                <sp:predicate rdf:resource="http://www.w3.org/2004/02/skos/core#altLabel"/>
-                <sp:object rdf:parseType="Resource">
-                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                  >label</sp:varName>
-                </sp:object>
-              </rdf:Description>
-            </sp:elements>
-          </sp:NamedGraph>
-        </sp:insertPattern>
         <sp:where rdf:parseType="Collection">
           <rdf:Description>
-            <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
-            <sp:predicate rdf:resource="http://www.w3.org/2002/07/owl#sameAs"/>
             <sp:object rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
               >other</sp:varName>
             </sp:object>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >g1</sp:varName>
-            </sp:subject>
-            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-            <sp:object rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >g2</sp:varName>
-            </sp:subject>
-            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-            <sp:object rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
-          </rdf:Description>
-          <sp:NamedGraph>
-            <sp:graphNameNode rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >g1</sp:varName>
-            </sp:graphNameNode>
-            <sp:elements rdf:parseType="Collection">
-              <rdf:Description>
-                <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
-                <sp:predicate rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
-                <sp:object rdf:parseType="Resource">
-                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                  >label</sp:varName>
-                </sp:object>
-              </rdf:Description>
-            </sp:elements>
-          </sp:NamedGraph>
-          <sp:NamedGraph>
-            <sp:graphNameNode rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >g2</sp:varName>
-            </sp:graphNameNode>
-            <sp:elements rdf:parseType="Collection">
-              <rdf:Description>
-                <sp:subject rdf:parseType="Resource">
-                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                  >other</sp:varName>
-                </sp:subject>
-                <sp:predicate rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
-                <sp:object rdf:parseType="Resource">
-                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                  >otherLabel</sp:varName>
-                </sp:object>
-              </rdf:Description>
-            </sp:elements>
-          </sp:NamedGraph>
-        </sp:where>
-      </sp:Modify>
-    </spin:rule>
-    <spin:rule>
-      <sp:Modify>
-        <sp:deletePattern rdf:parseType="Collection">
-          <sp:NamedGraph>
-            <sp:graphNameNode rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >g1</sp:varName>
-            </sp:graphNameNode>
-            <sp:elements rdf:parseType="Collection">
-              <rdf:Description>
-                <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
-                <sp:predicate rdf:parseType="Resource">
-                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                  >p</sp:varName>
-                </sp:predicate>
-                <sp:object rdf:parseType="Resource">
-                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                  >o</sp:varName>
-                </sp:object>
-              </rdf:Description>
-            </sp:elements>
-          </sp:NamedGraph>
-        </sp:deletePattern>
-        <sp:insertPattern rdf:parseType="Collection">
-          <sp:NamedGraph>
-            <sp:graphNameNode rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >g2</sp:varName>
-            </sp:graphNameNode>
-            <sp:elements rdf:parseType="Collection">
-              <rdf:Description>
-                <sp:subject rdf:parseType="Resource">
-                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                  >other</sp:varName>
-                </sp:subject>
-                <sp:predicate rdf:parseType="Resource">
-                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                  >p</sp:varName>
-                </sp:predicate>
-                <sp:object rdf:parseType="Resource">
-                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                  >o</sp:varName>
-                </sp:object>
-              </rdf:Description>
-            </sp:elements>
-          </sp:NamedGraph>
-        </sp:insertPattern>
-        <sp:where rdf:parseType="Collection">
-          <rdf:Description>
-            <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
             <sp:predicate rdf:resource="http://www.w3.org/2002/07/owl#sameAs"/>
-            <sp:object rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >other</sp:varName>
-            </sp:object>
+            <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
           </rdf:Description>
           <rdf:Description>
+            <sp:object rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
             <sp:subject rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
               >g1</sp:varName>
             </sp:subject>
-            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-            <sp:object rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
           </rdf:Description>
           <rdf:Description>
+            <sp:object rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
             <sp:subject rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
               >g2</sp:varName>
             </sp:subject>
-            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-            <sp:object rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
           </rdf:Description>
           <sp:NamedGraph>
-            <sp:graphNameNode rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >g1</sp:varName>
-            </sp:graphNameNode>
             <sp:elements rdf:parseType="Collection">
               <rdf:Description>
-                <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
-                <sp:predicate rdf:parseType="Resource">
-                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                  >p</sp:varName>
-                </sp:predicate>
                 <sp:object rdf:parseType="Resource">
                   <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
                   >o</sp:varName>
                 </sp:object>
+                <sp:predicate rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >p</sp:varName>
+                </sp:predicate>
+                <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
               </rdf:Description>
             </sp:elements>
-          </sp:NamedGraph>
-          <sp:NamedGraph>
             <sp:graphNameNode rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >g2</sp:varName>
+              >g1</sp:varName>
             </sp:graphNameNode>
+          </sp:NamedGraph>
+          <sp:NamedGraph>
             <sp:elements rdf:parseType="Collection">
               <rdf:Description>
-                <sp:subject rdf:parseType="Resource">
-                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                  >other</sp:varName>
-                </sp:subject>
-                <sp:predicate rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
                 <sp:object rdf:parseType="Resource">
                   <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
                   >otherLabel</sp:varName>
                 </sp:object>
+                <sp:predicate rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+                <sp:subject rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >other</sp:varName>
+                </sp:subject>
               </rdf:Description>
             </sp:elements>
+            <sp:graphNameNode rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >g2</sp:varName>
+            </sp:graphNameNode>
           </sp:NamedGraph>
           <sp:Filter>
             <sp:expression>
               <sp:notExists>
                 <sp:elements rdf:parseType="Collection">
                   <rdf:Description>
-                    <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
-                    <sp:predicate rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
                     <sp:object rdf:parseType="Resource">
                       <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
                       >label</sp:varName>
                     </sp:object>
+                    <sp:predicate rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+                    <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
                   </rdf:Description>
                 </sp:elements>
               </sp:notExists>
@@ -1140,395 +992,544 @@ Note that members of this class have a specific date, time, and venue; they are 
           <sp:Filter>
             <sp:expression>
               <sp:and>
-                <sp:arg1>
-                  <sp:ne>
-                    <sp:arg1 rdf:parseType="Resource">
-                      <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                      >o</sp:varName>
-                    </sp:arg1>
-                    <sp:arg2 rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Duplicate"/>
-                  </sp:ne>
-                </sp:arg1>
                 <sp:arg2>
                   <sp:or>
-                    <sp:arg1>
-                      <sp:ne>
-                        <sp:arg1 rdf:parseType="Resource">
-                          <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                          >p</sp:varName>
-                        </sp:arg1>
-                        <sp:arg2 rdf:resource="http://www.w3.org/2002/07/owl#sameAs"/>
-                      </sp:ne>
-                    </sp:arg1>
                     <sp:arg2>
                       <sp:ne>
-                        <sp:arg1 rdf:parseType="Resource">
-                          <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                          >o</sp:varName>
-                        </sp:arg1>
                         <sp:arg2 rdf:parseType="Resource">
                           <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
                           >other</sp:varName>
                         </sp:arg2>
+                        <sp:arg1 rdf:parseType="Resource">
+                          <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                          >o</sp:varName>
+                        </sp:arg1>
                       </sp:ne>
                     </sp:arg2>
+                    <sp:arg1>
+                      <sp:ne>
+                        <sp:arg2 rdf:resource="http://www.w3.org/2002/07/owl#sameAs"/>
+                        <sp:arg1 rdf:parseType="Resource">
+                          <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                          >p</sp:varName>
+                        </sp:arg1>
+                      </sp:ne>
+                    </sp:arg1>
                   </sp:or>
                 </sp:arg2>
+                <sp:arg1>
+                  <sp:ne>
+                    <sp:arg2 rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Duplicate"/>
+                    <sp:arg1 rdf:parseType="Resource">
+                      <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                      >o</sp:varName>
+                    </sp:arg1>
+                  </sp:ne>
+                </sp:arg1>
               </sp:and>
             </sp:expression>
           </sp:Filter>
         </sp:where>
+        <sp:insertPattern rdf:parseType="Collection">
+          <sp:NamedGraph>
+            <sp:elements rdf:parseType="Collection">
+              <rdf:Description>
+                <sp:object rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >o</sp:varName>
+                </sp:object>
+                <sp:predicate rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >p</sp:varName>
+                </sp:predicate>
+                <sp:subject rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >other</sp:varName>
+                </sp:subject>
+              </rdf:Description>
+            </sp:elements>
+            <sp:graphNameNode rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >g2</sp:varName>
+            </sp:graphNameNode>
+          </sp:NamedGraph>
+        </sp:insertPattern>
+        <sp:deletePattern rdf:parseType="Collection">
+          <sp:NamedGraph>
+            <sp:elements rdf:parseType="Collection">
+              <rdf:Description>
+                <sp:object rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >o</sp:varName>
+                </sp:object>
+                <sp:predicate rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >p</sp:varName>
+                </sp:predicate>
+                <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
+              </rdf:Description>
+            </sp:elements>
+            <sp:graphNameNode rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >g1</sp:varName>
+            </sp:graphNameNode>
+          </sp:NamedGraph>
+        </sp:deletePattern>
       </sp:Modify>
     </spin:rule>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#CorAnglais">
+    <spin:rule>
+      <sp:Modify>
+        <sp:where rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >other</sp:varName>
+            </sp:object>
+            <sp:predicate rdf:resource="http://www.w3.org/2002/07/owl#sameAs"/>
+            <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >g1</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >g2</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <sp:NamedGraph>
+            <sp:elements rdf:parseType="Collection">
+              <rdf:Description>
+                <sp:object rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >label</sp:varName>
+                </sp:object>
+                <sp:predicate rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+                <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
+              </rdf:Description>
+            </sp:elements>
+            <sp:graphNameNode rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >g1</sp:varName>
+            </sp:graphNameNode>
+          </sp:NamedGraph>
+          <sp:NamedGraph>
+            <sp:elements rdf:parseType="Collection">
+              <rdf:Description>
+                <sp:object rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >otherLabel</sp:varName>
+                </sp:object>
+                <sp:predicate rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+                <sp:subject rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >other</sp:varName>
+                </sp:subject>
+              </rdf:Description>
+            </sp:elements>
+            <sp:graphNameNode rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >g2</sp:varName>
+            </sp:graphNameNode>
+          </sp:NamedGraph>
+        </sp:where>
+        <sp:insertPattern rdf:parseType="Collection">
+          <sp:NamedGraph>
+            <sp:elements rdf:parseType="Collection">
+              <rdf:Description>
+                <sp:object rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >label</sp:varName>
+                </sp:object>
+                <sp:predicate rdf:resource="http://www.w3.org/2004/02/skos/core#altLabel"/>
+                <sp:subject rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >other</sp:varName>
+                </sp:subject>
+              </rdf:Description>
+            </sp:elements>
+            <sp:graphNameNode rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >g2</sp:varName>
+            </sp:graphNameNode>
+          </sp:NamedGraph>
+        </sp:insertPattern>
+        <sp:deletePattern rdf:parseType="Collection">
+          <sp:NamedGraph>
+            <sp:elements rdf:parseType="Collection">
+              <rdf:Description>
+                <sp:object rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >label</sp:varName>
+                </sp:object>
+                <sp:predicate rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+                <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
+              </rdf:Description>
+            </sp:elements>
+            <sp:graphNameNode rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >g1</sp:varName>
+            </sp:graphNameNode>
+          </sp:NamedGraph>
+        </sp:deletePattern>
+      </sp:Modify>
+    </spin:rule>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#CorAnglais">
     <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#DoubleReedInstrument"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#GroupPerformer">
-    <disjointWith rdf:resource="http://www.co-ode.org/ontologies/ont.owl#IndividualPerformer"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#GroupPerformer">
     <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Performer"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Fortepiano">
-    <ont:dbpediaURI>http://dbpedia.org/resource/Fortepiano</ont:dbpediaURI>
+    <owl:disjointWith rdf:resource="http://www.co-ode.org/ontologies/ont.owl#IndividualPerformer"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Fortepiano">
     <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#KeyboardInstrument"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ChoralGroup">
-    <rdfs:subClassOf>
-      <Restriction>
-        <someValuesFrom rdf:resource="http://www.co-ode.org/ontologies/ont.owl#ChoralWork"/>
-        <onProperty>
-          <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#performerOfWork"/>
-        </onProperty>
-      </Restriction>
-    </rdfs:subClassOf>
+    <ont:dbpediaURI>http://dbpedia.org/resource/Fortepiano</ont:dbpediaURI>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#ChoralGroup">
     <rdfs:subClassOf rdf:resource="http://purl.org/ontology/mo/MusicGroup"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Sackbut">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#performerOfWork"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="http://www.co-ode.org/ontologies/ont.owl#ChoralWork"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Sackbut">
     <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#BrassInstrument"/>
-  </Class>
-  <Class rdf:about="http://purl.org/ontology/mo/MusicArtist">
+  </owl:Class>
+  <owl:Class rdf:about="http://purl.org/ontology/mo/MusicArtist">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#IndividualPerformer"/>
     <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
     >http://musicontology.com/specification/</rdfs:isDefinedBy>
-    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#IndividualPerformer"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#PluckedStringInstrument">
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#PluckedStringInstrument">
     <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#StringInstrument"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Tympani">
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Tympani">
     <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Drum"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Guitar">
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Guitar">
     <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#PluckedStringInstrument"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#TenorSinger">
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#TenorSinger">
     <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MaleSinger"/>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SoundProductionEvent">
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#SoundProductionEvent">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#partPerformedBy"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Performer"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#partInPerformance"/>
+        </owl:onProperty>
+        <owl:onClass rdf:resource="http://purl.org/ontology/mo/Performance"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:qualifiedCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
     <rdfs:comment>Instances of this class and its subclasses are intended to represent the production of musical sound by a Performer performing a MusicalWork.  For example, a cellist performing as a soloist in a performance of a cello concerto would be an instance of this class.  We do not need to be unnecessarily fine-grained in the instances created in this class.  For iexample, we could create an instance for each of the violinists in a symphony orchestra performing a symphony or its part of a concerto, but it isn't useful to do so; it's better to create an single instance of the symphony orchestra (an instance of MusicalEnsemble and hence of Performer) performing the work.
 
 This class is also intended to cover instances of singing and other vocaliztion, whistling, clapping, and playing an instrument -- in short, anything that contributes to the sounds in a MusicalWork.</rdfs:comment>
-    <rdfs:subClassOf>
-      <Restriction>
-        <qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</qualifiedCardinality>
-        <onClass rdf:resource="http://purl.org/ontology/mo/Performance"/>
-        <onProperty>
-          <FunctionalProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#partInPerformance"/>
-        </onProperty>
-      </Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <Restriction>
-        <someValuesFrom rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Performer"/>
-        <onProperty>
-          <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#partPerformedBy"/>
-        </onProperty>
-      </Restriction>
-    </rdfs:subClassOf>
-  </Class>
-  <Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#OtherProducerOfSound">
+  </owl:Class>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#OtherProducerOfSound">
     <rdfs:subClassOf rdf:resource="http://purl.org/ontology/mo/MusicArtist"/>
-  </Class>
-  <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#workComposedBy">
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#workComposedBy">
+    <rdfs:domain rdf:resource="http://purl.org/ontology/mo/MusicalWork"/>
     <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Composer"/>
-    <rdfs:domain rdf:resource="http://purl.org/ontology/mo/MusicalWork"/>
-  </ObjectProperty>
-  <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#memberOfMusicalEventGroup">
-    <rdfs:subPropertyOf>
-      <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#partOf"/>
-    </rdfs:subPropertyOf>
-    <inverseOf>
-      <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#musicalEventGroupHasMember"/>
-    </inverseOf>
-    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalEvent"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#memberOfMusicalEventGroup">
     <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#GroupedMusicalEvents"/>
-  </ObjectProperty>
-  <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#playsInstrument">
-    <rdfs:subPropertyOf>
-      <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#musicalSkill"/>
-    </rdfs:subPropertyOf>
-    <rdfs:range rdf:resource="http://purl.org/ontology/mo/InstrumentalMusician"/>
-  </ObjectProperty>
-  <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasPart">
-    <inverseOf>
-      <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#partOf"/>
-    </inverseOf>
-    <rdfs:comment>Basic, abstract partonomic relation, which subsumes, among other things, membership and subevent properties.</rdfs:comment>
-  </ObjectProperty>
-  <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasMusicalScoring">
-    <inverseOf>
-      <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#musicalScoringOf"/>
-    </inverseOf>
-    <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#ScoringOfMusicalWork"/>
-    <rdfs:domain rdf:resource="http://purl.org/ontology/mo/MusicalWork"/>
-  </ObjectProperty>
-  <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#singingRegister">
-    <rdfs:subPropertyOf>
-      <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#musicalSkill"/>
-    </rdfs:subPropertyOf>
-    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Singer"/>
-  </ObjectProperty>
-  <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#workPerformed">
-    <rdfs:range rdf:resource="http://purl.org/ontology/mo/Performance"/>
-    <rdfs:domain rdf:resource="http://purl.org/ontology/mo/MusicalWork"/>
-  </ObjectProperty>
-  <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#componentOfScoring">
-    <inverseOf>
-      <rdf:Property rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasScoreComponent"/>
-    </inverseOf>
-    <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#ScoringOfMusicalWork"/>
-    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Performer"/>
-  </ObjectProperty>
-  <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#performanceInEvent">
-    <rdfs:subPropertyOf>
-      <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#partOf"/>
-    </rdfs:subPropertyOf>
-    <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalEvent"/>
-    <rdfs:domain rdf:resource="http://purl.org/ontology/mo/Performance"/>
-  </ObjectProperty>
-  <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#musicalScoringOf">
-    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#ScoringOfMusicalWork"/>
-    <rdfs:range rdf:resource="http://purl.org/ontology/mo/MusicalWork"/>
-  </ObjectProperty>
-  <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#imslpTimePeriod">
-    <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#IMSLPTimePeriod"/>
-    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Composer"/>
-  </ObjectProperty>
-  <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#eventHasPerformance">
-    <inverseOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#performanceInEvent"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#hasPart"/>
     <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalEvent"/>
-    <rdfs:range rdf:resource="http://purl.org/ontology/mo/Performance"/>
-  </ObjectProperty>
-  <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#musicalEventGroupHasMember">
-    <rdfs:subPropertyOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#hasPart"/>
-    <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalEvent"/>
-    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#GroupedMusicalEvents"/>
-  </ObjectProperty>
-  <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#imslpPieceStyle">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#musicalEventGroupHasMember"/>
+    </owl:inverseOf>
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#partOf"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasPart">
+    <rdfs:comment>Basic, abstract partonomic relation, which subsumes, among other things, membership and subevent properties.</rdfs:comment>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#partOf"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#playsInstrument">
+    <rdfs:range rdf:resource="http://purl.org/ontology/mo/InstrumentalMusician"/>
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#musicalSkill"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasMusicalScoring">
     <rdfs:domain rdf:resource="http://purl.org/ontology/mo/MusicalWork"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
-  </ObjectProperty>
-  <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#performerIn">
-    <inverseOf>
-      <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#performedBy"/>
-    </inverseOf>
-    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Performer"/>
-    <rdfs:range rdf:resource="http://purl.org/ontology/mo/Performance"/>
-  </ObjectProperty>
-  <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#workHasPerformer">
-    <inverseOf>
-      <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#performerOfWork"/>
-    </inverseOf>
-    <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Performer"/>
+    <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#ScoringOfMusicalWork"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#musicalScoringOf"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#singingRegister">
+    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Singer"/>
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#musicalSkill"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#workPerformed">
     <rdfs:domain rdf:resource="http://purl.org/ontology/mo/MusicalWork"/>
-    <rdfs:comment>This property relates a MusicalWork to all the Performers involved in any Performance of that work.  It should be inferred from a conjunction of workPerformed/performanceOfWork and performedBy/performerIn, where the Performer is the same.</rdfs:comment>
-  </ObjectProperty>
-  <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#performanceOfPart">
-    <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#SoundProductionEvent"/>
+    <rdfs:range rdf:resource="http://purl.org/ontology/mo/Performance"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#componentOfScoring">
+    <owl:inverseOf>
+      <rdf:Property rdf:about="http://www.co-ode.org/ontologies/ont.owl#workHasPerformerType"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#ScoringOfMusicalWork"/>
     <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Performer"/>
-  </ObjectProperty>
-  <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#locationsOverlap">
-    <inverseOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#locationsOverlap"/>
-    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#GeographicalLocation"/>
-    <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#GeographicalLocation"/>
-  </ObjectProperty>
-  <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#musicalSkill">
-    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Performer"/>
-  </ObjectProperty>
-  <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#productionOfScoreComponent">
-    <inverseOf>
-      <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#scoreComponentProduced"/>
-    </inverseOf>
-    <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#SoundProductionEvent"/>
-  </ObjectProperty>
-  <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#partOf">
-    <rdfs:comment>Basic, abstract partonomic relation, which subsumes, among other things, member_of and subevent_of properties.</rdfs:comment>
-  </ObjectProperty>
-  <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#scoreComponentProduced">
-    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#SoundProductionEvent"/>
-  </ObjectProperty>
-  <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#performingGroupHasMember">
-    <inverseOf>
-      <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#memberOfPerformingGroup"/>
-    </inverseOf>
-    <rdfs:subPropertyOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#hasPart"/>
-    <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#IndividualPerformer"/>
-    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#GroupPerformer"/>
-  </ObjectProperty>
-  <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#partPerformedBy">
-    <inverseOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#performanceOfPart"/>
-    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#SoundProductionEvent"/>
-    <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Performer"/>
-  </ObjectProperty>
-  <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#memberOfPerformingGroup">
-    <rdfs:subPropertyOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#partOf"/>
-    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#IndividualPerformer"/>
-    <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#GroupPerformer"/>
-  </ObjectProperty>
-  <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#performedBy">
-    <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Performer"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#performanceInEvent">
     <rdfs:domain rdf:resource="http://purl.org/ontology/mo/Performance"/>
-  </ObjectProperty>
-  <ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#performerOfWork">
-    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Performer"/>
+    <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalEvent"/>
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#partOf"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#musicalScoringOf">
     <rdfs:range rdf:resource="http://purl.org/ontology/mo/MusicalWork"/>
+    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#ScoringOfMusicalWork"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#imslpTimePeriod">
+    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Composer"/>
+    <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#IMSLPTimePeriod"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#eventHasPerformance">
+    <rdfs:range rdf:resource="http://purl.org/ontology/mo/Performance"/>
+    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalEvent"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#hasPart"/>
+    <owl:inverseOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#performanceInEvent"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#containsLocation">
+    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Location"/>
+    <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Location"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#catalogOfComposer">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#composerHasCatalog"/>
+    </owl:inverseOf>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#composerHasCatalog">
+    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Composer"/>
+    <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWorkCatalog"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#musicalEventGroupHasMember">
+    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#GroupedMusicalEvents"/>
+    <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalEvent"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#hasPart"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#imslpPieceStyle">
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:domain rdf:resource="http://purl.org/ontology/mo/MusicalWork"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#performerIn">
+    <rdfs:range rdf:resource="http://purl.org/ontology/mo/Performance"/>
+    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Performer"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#performedBy"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#partInPerformance">
+    <rdfs:range rdf:resource="http://purl.org/ontology/mo/Performance"/>
+    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#SoundProductionEvent"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasPerformedPart"/>
+    </owl:inverseOf>
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#partOf"/>
+    </rdfs:subPropertyOf>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#workHasPerformer">
+    <rdfs:comment>This property relates a MusicalWork to all the Performers involved in any Performance of that work.  It should be inferred from a conjunction of workPerformed/performanceOfWork and performedBy/performerIn, where the Performer is the same.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://purl.org/ontology/mo/MusicalWork"/>
+    <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Performer"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#performerOfWork"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#performanceOfPart">
+    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Performer"/>
+    <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#SoundProductionEvent"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#locationsOverlap">
+    <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#GeographicalLocation"/>
+    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#GeographicalLocation"/>
+    <owl:inverseOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#locationsOverlap"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#musicalSkill">
+    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Performer"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#productionOfScoreComponent">
+    <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#SoundProductionEvent"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#scoreComponentProduced"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#locatedIn">
+    <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Location"/>
+    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Location"/>
+    <owl:inverseOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#containsLocation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#partOf">
+    <rdfs:comment>Basic, abstract partonomic relation, which subsumes, among other things, member_of and subevent_of properties.</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#scoreComponentProduced">
+    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#SoundProductionEvent"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#performanceOf">
+    <rdfs:comment>This property relates an instance of Performance to an instance of MusicalWork.  Every Performance has to be a performance of some MusicalWork</rdfs:comment>
+    <rdfs:range rdf:resource="http://purl.org/ontology/mo/MusicalWork"/>
+    <rdfs:domain rdf:resource="http://purl.org/ontology/mo/Performance"/>
+    <owl:inverseOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#workPerformed"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#performingGroupHasMember">
+    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#GroupPerformer"/>
+    <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#IndividualPerformer"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#hasPart"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#memberOfPerformingGroup"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasPerformedPart">
+    <rdfs:domain rdf:resource="http://purl.org/ontology/mo/Performance"/>
+    <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#SoundProductionEvent"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#hasPart"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#partPerformedBy">
+    <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Performer"/>
+    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#SoundProductionEvent"/>
+    <owl:inverseOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#performanceOfPart"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#memberOfPerformingGroup">
+    <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#GroupPerformer"/>
+    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#IndividualPerformer"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#partOf"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#performedBy">
+    <rdfs:domain rdf:resource="http://purl.org/ontology/mo/Performance"/>
+    <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Performer"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#performerOfWork">
     <rdfs:comment>This property relates a Performer to all the MusicalWorks whose Performance involves that Performer.  It should be inferred from a conjunction of workPerformed/performanceOfWork and performedBy/performerIn, where the Performer is the same.</rdfs:comment>
-  </ObjectProperty>
-  <rdf:Property rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasFeaturedPerformerType">
+    <rdfs:range rdf:resource="http://purl.org/ontology/mo/MusicalWork"/>
+    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Performer"/>
+  </owl:ObjectProperty>
+  <rdf:Property rdf:about="http://www.co-ode.org/ontologies/ont.owl#workHasPerformerType">
+    <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:domain rdf:resource="http://purl.org/ontology/mo/MusicalWork"/>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://www.co-ode.org/ontologies/ont.owl#workHasFeaturedPerformerType">
+    <rdfs:subPropertyOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#workHasPerformerType"/>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >This is a sub-property of hasScoreComponent.  It links an instance of ScoringOfMusicalWork to an instance of IndividualPerformer, in particular, the performer who is (one of) the "featured" performer(s) in the MusicalWork represented by this instance of ScoringOfMusicalWork.  For example, a violin concerto will have a Violin(ist) as the featured indtrument, and a song cycle for soprano with a piano accompaniment would indicate the the soprano is featured.
+    >This is a sub-property of workHasPerformerType.  It links an instance of MusicalWork to an class of Performer, in particular, the performer type that is (one of) the "featured" performer(s) in the MusicalWork.  For example, a violin concerto will have a Violin(ist) as the featured indtrument, and a song cycle for soprano with a piano accompaniment would indicate the the soprano is featured.
 
 A couple of cases merit special mention.  It is possible for there to be more than one featured part.  So in a concerto for oboe, harp, and orchestra, both the harp and the oboe would be featured.  Second, there might be cases where the featured performer is in fact a group, rather than an IndividualPerformer (a concerto for string quartet and orchestra, or a work for orchestra and a featured chorus might be instances of this).  To accommodate such cases, we relax the range restriction on this property to subclasses of Performer, rather than IndividualPerformer.
 
+*the following paragraph is obsolete, for now :) *
 Finally, note that this property relates the ScoringOfMusicalWork, not the MusicalWork itself, to a subclass of Performer.  This is partly a consequence of other aspects of the ontology, but also has a legitimate real-world justification in that different orchestrations of a single work might have different featured performers.  To relate a hasFeaturedPerformerType to the pertinent MusicalWork, it's necessary to track back via the hasMusicalScoring property.</rdfs:comment>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >has featured performer type</rdfs:label>
     <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#ScoringOfMusicalWork"/>
-    <rdfs:subPropertyOf>
-      <rdf:Property rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasScoreComponent"/>
-    </rdfs:subPropertyOf>
+    <rdfs:domain rdf:resource="http://purl.org/ontology/mo/MusicalWork"/>
   </rdf:Property>
-  <rdf:Property rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasScoreComponent">
-    <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#ScoringOfMusicalWork"/>
-  </rdf:Property>
-  <DatatypeProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#catalogID">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DatatypeProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#catalogID">
     <rdfs:domain rdf:resource="http://purl.org/ontology/mo/MusicalWork"/>
-  </DatatypeProperty>
-  <DatatypeProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#workInKey">
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#workInKey">
     <rdfs:domain rdf:resource="http://purl.org/ontology/mo/MusicalWork"/>
-  </DatatypeProperty>
-  <DatatypeProperty rdf:about="http://xmlns.com/foaf/0.1/givenName">
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </DatatypeProperty>
-  <DatatypeProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#yearComposed">
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://xmlns.com/foaf/0.1/givenName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#yearComposed">
+    <rdfs:domain rdf:resource="http://purl.org/ontology/mo/MusicalWork"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-    <rdfs:domain rdf:resource="http://purl.org/ontology/mo/MusicalWork"/>
-  </DatatypeProperty>
-  <DatatypeProperty rdf:about="http://xmlns.com/foaf/0.1/surname">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </DatatypeProperty>
-  <DatatypeProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#composerHasAbbreviation">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Composer"/>
-  </DatatypeProperty>
-  <TransitiveProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#containsLocation">
-    <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Location"/>
-    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Location"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-  </TransitiveProperty>
-  <TransitiveProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#locatedIn">
-    <inverseOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#containsLocation"/>
-    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Location"/>
-    <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Location"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-  </TransitiveProperty>
-  <FunctionalProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#performanceOf">
-    <inverseOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#workPerformed"/>
-    <rdfs:domain rdf:resource="http://purl.org/ontology/mo/Performance"/>
-    <rdfs:range rdf:resource="http://purl.org/ontology/mo/MusicalWork"/>
-    <rdfs:comment>This property relates an instance of Performance to an instance of MusicalWork.  Every Performance has to be a performance of some MusicalWork</rdfs:comment>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-  </FunctionalProperty>
-  <FunctionalProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#partInPerformance">
-    <rdfs:subPropertyOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#partOf"/>
-    <inverseOf>
-      <InverseFunctionalProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasPerformedPart"/>
-    </inverseOf>
-    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#SoundProductionEvent"/>
-    <rdfs:range rdf:resource="http://purl.org/ontology/mo/Performance"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-  </FunctionalProperty>
-  <FunctionalProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#yearOfBirth">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#yearOfBirth">
     <rdfs:comment>Using this instead of dbpedia-owl birthYear because XSD DateTime stuff gets inexplicably messed up. dbpedia data is inconsistent, and Apache Jena barfs on it. -kk</rdfs:comment>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-  </FunctionalProperty>
-  <FunctionalProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#catalogOfComposer">
-    <inverseOf>
-      <InverseFunctionalProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#composerHasCatalog"/>
-    </inverseOf>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-  </FunctionalProperty>
-  <FunctionalProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#yearOfDeath">
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-    <rdfs:comment>Using this instead of dbpedia-owl: dateOfDeath because XSD DateTime stuff gets inexplicably messed up. dbpedia data is inconsistent, and Apache Jena barfs on it. -kk</rdfs:comment>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-  </FunctionalProperty>
-  <InverseFunctionalProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasPerformedPart">
-    <rdfs:subPropertyOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#hasPart"/>
-    <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#SoundProductionEvent"/>
-    <rdfs:domain rdf:resource="http://purl.org/ontology/mo/Performance"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-  </InverseFunctionalProperty>
-  <InverseFunctionalProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#composerHasCatalog">
-    <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWorkCatalog"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://xmlns.com/foaf/0.1/surname">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#composerHasAbbreviation">
     <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Composer"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-  </InverseFunctionalProperty>
-  <AnnotationProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#catalogHasComposer"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#yearOfDeath">
+    <rdfs:comment>Using this instead of dbpedia-owl: dateOfDeath because XSD DateTime stuff gets inexplicably messed up. dbpedia data is inconsistent, and Apache Jena barfs on it. -kk</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:AnnotationProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#catalogHasComposer"/>
   <ont:IMSLPTimePeriod rdf:about="http://www.co-ode.org/ontologies/ont.owl#Romantic"/>
-  <AnnotationProperty rdf:about="http://spinrdf.org/arg#wRegex">
+  <owl:AnnotationProperty rdf:about="http://spinrdf.org/arg#wRegex">
     <rdfs:subPropertyOf rdf:resource="http://spinrdf.org/sp#arg"/>
-  </AnnotationProperty>
+  </owl:AnnotationProperty>
   <ont:IMSLPTimePeriod rdf:about="http://www.co-ode.org/ontologies/ont.owl#Early20thCentury"/>
   <ont:IMSLPTimePeriod rdf:about="http://www.co-ode.org/ontologies/ont.owl#Modern"/>
-  <AnnotationProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#wikidataURI"/>
-  <AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
-  <AnnotationProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#dbpediaURI">
+  <owl:AnnotationProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#wikidataURI"/>
+  <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+  <owl:AnnotationProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#dbpediaURI">
     <rdfs:comment>URI's for resources slurped from dbpedia.</rdfs:comment>
-  </AnnotationProperty>
-  <AnnotationProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#imslpURI"/>
-  <AnnotationProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#musicBrainzURI"/>
+  </owl:AnnotationProperty>
+  <owl:AnnotationProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#imslpURI"/>
+  <owl:AnnotationProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#musicBrainzURI"/>
   <ont:IMSLPPieceStyle rdf:about="http://www.co-ode.org/ontologies/ont.owl#Traditional"/>
-  <AnnotationProperty rdf:about="http://spinrdf.org/arg#cRegex">
+  <owl:AnnotationProperty rdf:about="http://spinrdf.org/arg#cRegex">
     <rdfs:subPropertyOf rdf:resource="http://spinrdf.org/sp#arg"/>
-  </AnnotationProperty>
-  <AnnotationProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#venueURL">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+  </owl:AnnotationProperty>
+  <owl:AnnotationProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#venueURL">
     <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#VenueForPerformance"/>
-  </AnnotationProperty>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+  </owl:AnnotationProperty>
   <ont:IMSLPTimePeriod rdf:about="http://www.co-ode.org/ontologies/ont.owl#Renaissance"/>
   <ont:IMSLPTimePeriod rdf:about="http://www.co-ode.org/ontologies/ont.owl#Classical"/>
   <ont:IMSLPPieceStyle rdf:about="http://www.co-ode.org/ontologies/ont.owl#Ancient"/>
-  <AnnotationProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#imslpGenre">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:AnnotationProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#imslpGenre">
     <rdfs:domain rdf:resource="http://purl.org/ontology/mo/MusicalWork"/>
-  </AnnotationProperty>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:AnnotationProperty>
   <ont:IMSLPTimePeriod rdf:about="http://www.co-ode.org/ontologies/ont.owl#Medieval"/>
-  <AnnotationProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#imslpInstrumentation">
-    <rdfs:domain rdf:resource="http://purl.org/ontology/mo/MusicalWork"/>
+  <owl:AnnotationProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#imslpInstrumentation">
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </AnnotationProperty>
-  <AnnotationProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#geonamesURL">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
-    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Location"/>
+    <rdfs:domain rdf:resource="http://purl.org/ontology/mo/MusicalWork"/>
+  </owl:AnnotationProperty>
+  <owl:AnnotationProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#geonamesURL">
     <rdfs:comment>This is the geonames url for the gps/map location</rdfs:comment>
-  </AnnotationProperty>
+    <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Location"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+  </owl:AnnotationProperty>
   <ont:IMSLPTimePeriod rdf:about="http://www.co-ode.org/ontologies/ont.owl#Baroque"/>
 </rdf:RDF>
 
