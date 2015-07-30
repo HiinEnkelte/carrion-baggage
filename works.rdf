@@ -79,17 +79,18 @@
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork078168"/>
   </rdf:Description>
   <ont:HandEntered rdf:about="http://purl.org/ontology/mo/UnderLightedCoffers">
+    <ont:workHasPerformerType rdf:resource="http://www.co-ode.org/ontologies/ont.owl#SymphonyOrchestra"/>
+    <ont:workHasFeaturedPerformerType rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Steelpan"/>
     <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Under Lighted Coffers</rdfs:label>
     <ont:hasMusicalScoring>
       <ont:ScoringOfMusicalWork rdf:about="http://purl.org/dc/elements/1.1/ScoringOfUnderLightedCoffers_1">
-        <ont:workHasFeaturedPerformerType rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Steelpan"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
         >Scoring of under lighted coffers 1</rdfs:label>
-        <ont:workHasPerformerType rdf:resource="http://www.co-ode.org/ontologies/ont.owl#SymphonyOrchestra"/>
         <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#HandEntered"/>
       </ont:ScoringOfMusicalWork>
     </ont:hasMusicalScoring>
+    <ont:workComposedBy rdf:resource="http://www.co-ode.org/ontologies/ont.owl#AkihoAndy"/>
     <rdf:type rdf:resource="http://purl.org/ontology/mo/MusicalWork"/>
   </ont:HandEntered>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork002584">
