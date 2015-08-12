@@ -29,6 +29,11 @@
     <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >1.1.3</owl:versionInfo>
   </owl:Ontology>
+  <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Steelpan">
+    <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Idiophone"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Steelpan</rdfs:label>
+  </owl:Class>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork001268">
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork063678"/>
   </rdf:Description>
@@ -44,11 +49,11 @@
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork011617">
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork003878"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork005111">
-    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork103108"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork007349">
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork042623"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork005111">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork103108"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork003704">
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork003703"/>
@@ -74,8 +79,18 @@
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork078168"/>
   </rdf:Description>
   <ont:HandEntered rdf:about="http://purl.org/ontology/mo/UnderLightedCoffers">
+    <ont:workHasPerformerType rdf:resource="http://www.co-ode.org/ontologies/ont.owl#SymphonyOrchestra"/>
+    <ont:workHasFeaturedPerformerType rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Steelpan"/>
     <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Under Lighted Coffers</rdfs:label>
+    <ont:hasMusicalScoring>
+      <ont:ScoringOfMusicalWork rdf:about="http://purl.org/dc/elements/1.1/ScoringOfUnderLightedCoffers_1">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Scoring of under lighted coffers 1</rdfs:label>
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#HandEntered"/>
+      </ont:ScoringOfMusicalWork>
+    </ont:hasMusicalScoring>
+    <ont:workComposedBy rdf:resource="http://www.co-ode.org/ontologies/ont.owl#AkihoAndy"/>
     <rdf:type rdf:resource="http://purl.org/ontology/mo/MusicalWork"/>
   </ont:HandEntered>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork002584">
@@ -145,11 +160,11 @@
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork011348">
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork004136"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork003177">
-    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork031280"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork003323">
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork053223"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork003177">
+    <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork031280"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#MusicalWork000531">
     <owl:sameAs rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MusicalWork100521"/>
