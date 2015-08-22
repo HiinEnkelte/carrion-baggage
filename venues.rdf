@@ -1,251 +1,170 @@
 <?xml version="1.0"?>
-
-<!DOCTYPE rdf:RDF [
-    <!ENTITY sp "http://spinrdf.org/sp#" >
-    <!ENTITY arg "http://spinrdf.org/arg#" >
-    <!ENTITY spl "http://spinrdf.org/spl#" >
-    <!ENTITY spin "http://spinrdf.org/spin#" >
-    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
-    <!ENTITY dbpedia "http://dbpedia.org/resource/" >
-    <!ENTITY dbpedia-owl "http://dbpedia.org/ontology/" >
-    <!ENTITY mo "http://purl.org/ontology/mo/" >
-    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
-    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
-    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
-    <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
-    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
-    <!ENTITY ont "http://www.co-ode.org/ontologies/ont.owl#" >
-    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
-]>
-
-
-<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#"
-     xmlns:dc="http://purl.org/dc/elements/1.1/"
-     xmlns:dbpedia-owl="http://dbpedia.org/ontology/"
-     xmlns:mo="http://purl.org/ontology/mo/"
-     xmlns:sp="http://spinrdf.org/sp#"
-     xmlns:foaf="http://xmlns.com/foaf/0.1/"
-     xmlns:arg="http://spinrdf.org/arg#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:spl="http://spinrdf.org/spl#"
-     xmlns:ont="http://www.co-ode.org/ontologies/ont.owl#"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:dbpedia="http://dbpedia.org/resource/"
-     xmlns:spin="http://spinrdf.org/spin#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
-     xml:base="http://www.co-ode.org/ontologies/cv/venues">
-    <Ontology rdf:about="">
-        <versionInfo rdf:datatype="&xsd;string">1.1.1</versionInfo>
-        <rdfs:comment>Refactoring: venues. -kk 5/23/15</rdfs:comment>
-        <imports rdf:resource="http://spinrdf.org/spin"/>
-        <imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
-        <imports rdf:resource="http://www.co-ode.org/ontologies/cv/tbox"/>
-    </Ontology>
-
-
-    <!-- http://www.co-ode.org/ontologies/ont.owl#BairdAuditoriumNtlMuseumOfNaturalHistory -->
-
-    <NamedIndividual rdf:about="&ont;BairdAuditoriumNtlMuseumOfNaturalHistory">
-        <rdf:type rdf:resource="&ont;VenueForPerformance"/>
-        <ont:geonamesURL rdf:datatype="&xsd;anyURI">http://www.geonames.org/4139757/national-museum-of-natural-history.html</ont:geonamesURL>
-        <ont:venueURL rdf:datatype="&xsd;anyURI">http://www.mnh.si.edu/specialevents/baird.html</ont:venueURL>
-    </NamedIndividual>
-    
-
-
-
-    <!-- http://www.co-ode.org/ontologies/ont.owl#BethesdaMD -->
-
-    <NamedIndividual rdf:about="&ont;BethesdaMD">
-        <rdf:type rdf:resource="&ont;GeographicalLocation"/>
-        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://www.geonames.org/4348599/bethesda.html</rdfs:isDefinedBy>
-        <ont:locatedIn rdf:resource="&ont;MontgomeryCountyMD"/>
-    </NamedIndividual>
-    
-
-
-<!-- http://www.co-ode.org/ontologies/ont.owl#ClariceSmithCenter -->
-
-    <NamedIndividual rdf:about="&ont;ClariceSmithCenter">
-        <rdf:type rdf:resource="&ont;VenueForPerformance"/>
-        <ont:geonamesURL rdf:datatype="&xsd;anyURI">http://www.geonames.org/6340085/clarice-smith-performing-arts-center.html</ont:geonamesURL>
-        <ont:venueURL rdf:datatype="&xsd;anyURI">https://theclarice.umd.edu</ont:venueURL>
-        <ont:locatedIn rdf:resource="&ont;CollegeParkMD"/>
-    </NamedIndividual>
-    
-
-
-
-
-    <!-- http://www.co-ode.org/ontologies/ont.owl#CollegeParkMD -->
-
-    <NamedIndividual rdf:about="&ont;CollegeParkMD">
-        <rdf:type rdf:resource="&ont;GeographicalLocation"/>
-        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://www.geonames.org/4351977/college-park.html</rdfs:isDefinedBy>
-        <ont:locatedIn rdf:resource="&ont;PrinceGeorgesCountyMD"/>
-    </NamedIndividual>
-    
-
-
-    <!-- http://www.co-ode.org/ontologies/ont.owl#CoolidgeAuditoriumAtTheLibraryOfCongress -->
-
-    <NamedIndividual rdf:about="&ont;CoolidgeAuditoriumAtTheLibraryOfCongress">
-        <rdf:type rdf:resource="&ont;VenueForPerformance"/>
-        <ont:geonamesURL rdf:datatype="&xsd;anyURI">http://www.geonames.org/4139387/library-of-congress.html</ont:geonamesURL>
-        <ont:venueURL rdf:datatype="&xsd;anyURI">http://www.loc.gov/concerts/</ont:venueURL>
-    </NamedIndividual>
-    
-
-
-    <!-- http://www.co-ode.org/ontologies/ont.owl#DavisPerformingArtsCenter -->
-
-    <NamedIndividual rdf:about="&ont;DavisPerformingArtsCenter">
-        <rdf:type rdf:resource="&ont;VenueForPerformance"/>
-        <ont:geonamesURL rdf:datatype="&xsd;anyURI">http://www.geonames.org/6343084/davis-performing-arts-center.html</ont:geonamesURL>
-        <ont:venueURL rdf:datatype="&xsd;anyURI">https://performingarts.georgetown.edu/academics/tpst/davis-performing-arts-center</ont:venueURL>
-        <ont:locatedIn rdf:resource="&ont;WashingtonDC"/>
-    </NamedIndividual>
-    
-
-
-
-    <!-- http://www.co-ode.org/ontologies/ont.owl#FairfaxCityVA -->
-
-    <NamedIndividual rdf:about="&ont;FairfaxCityVA">
-        <rdf:type rdf:resource="&ont;GeographicalLocation"/>
-        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://www.geonames.org/4758023/fairfax.html</rdfs:isDefinedBy>
-        <ont:locatedIn rdf:resource="&ont;MetroAreaOfWashingtonDC"/>
-        <ont:locatedIn rdf:resource="&ont;Virginia"/>
-    </NamedIndividual>
-    
-
-
-    <!-- http://www.co-ode.org/ontologies/ont.owl#FairfaxCountyVA -->
-
-    <NamedIndividual rdf:about="&ont;FairfaxCountyVA">
-        <rdf:type rdf:resource="&ont;GeographicalLocation"/>
-        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://www.geonames.org/4758041/fairfax-county.html</rdfs:isDefinedBy>
-        <ont:locatedIn rdf:resource="&ont;MetroAreaOfWashingtonDC"/>
-        <ont:locatedIn rdf:resource="&ont;Virginia"/>
-    </NamedIndividual>
-    
-
-
-    <!-- http://www.co-ode.org/ontologies/ont.owl#FileneCenterAtWolfTrap -->
-
-    <NamedIndividual rdf:about="&ont;FileneCenterAtWolfTrap">
-        <rdf:type rdf:resource="&ont;VenueForPerformance"/>
-        <ont:geonamesURL rdf:datatype="&xsd;anyURI">http://www.geonames.org/4758747/filene-center.html</ont:geonamesURL>
-        <ont:venueURL rdf:datatype="&xsd;anyURI">http://www.wolftrap.org/Filene_Center.aspx</ont:venueURL>
-    </NamedIndividual>
-    
-
-
-
-    <!-- http://www.co-ode.org/ontologies/ont.owl#GMUCenter -->
-
-    <NamedIndividual rdf:about="&ont;GMUCenter">
-        <rdf:type rdf:resource="&ont;VenueForPerformance"/>
-        <ont:venueURL rdf:datatype="&xsd;anyURI">http://cfa.gmu.edu</ont:venueURL>
-        <ont:geonamesURL rdf:datatype="&xsd;anyURI">http://www.geonames.org/6343192/center-for-the-arts-concert-hall.html</ont:geonamesURL>
-        <ont:locatedIn rdf:resource="&ont;FairfaxCityVA"/>
-    </NamedIndividual>
-    
-
-    <!-- http://www.co-ode.org/ontologies/ont.owl#KennedyCenter -->
-
-    <NamedIndividual rdf:about="&ont;KennedyCenter">
-        <rdf:type rdf:resource="&ont;VenueForPerformance"/>
-        <ont:geonamesURL rdf:datatype="&xsd;anyURI">http://www.geonames.org/4139237/john-f-kennedy-center-for-the-performing-arts.html</ont:geonamesURL>
-        <ont:venueURL rdf:datatype="&xsd;anyURI">http://www.kennedy-center.org/index.cfm</ont:venueURL>
-        <ont:locatedIn rdf:resource="&ont;WashingtonDC"/>
-    </NamedIndividual>
-    
-
-
-    <!-- http://www.co-ode.org/ontologies/ont.owl#Maryland -->
-
-    <NamedIndividual rdf:about="&ont;Maryland">
-        <rdf:type rdf:resource="&ont;GeographicalLocation"/>
-        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://www.geonames.org/4361885/maryland.html</rdfs:isDefinedBy>
-        <ont:locationsOverlap rdf:resource="&ont;MetroAreaOfWashingtonDC"/>
-    </NamedIndividual>
-    
-
-
-    <!-- http://www.co-ode.org/ontologies/ont.owl#MetroAreaOfWashingtonDC -->
-
-    <NamedIndividual rdf:about="&ont;MetroAreaOfWashingtonDC">
-        <rdf:type rdf:resource="&ont;GeographicalLocation"/>
-    </NamedIndividual>
-    
-
-
-    <!-- http://www.co-ode.org/ontologies/ont.owl#MontgomeryCountyMD -->
-
-    <NamedIndividual rdf:about="&ont;MontgomeryCountyMD">
-        <rdf:type rdf:resource="&ont;GeographicalLocation"/>
-        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://www.geonames.org/4362716/montgomery-county.html</rdfs:isDefinedBy>
-        <rdfs:comment>Known for Strathmore, a lack of comprehensive universities, and crazy liquor laws.</rdfs:comment>
-        <ont:locatedIn rdf:resource="&ont;Maryland"/>
-        <ont:locatedIn rdf:resource="&ont;MetroAreaOfWashingtonDC"/>
-    </NamedIndividual>
-    
-
-
-    <!-- http://www.co-ode.org/ontologies/ont.owl#NorthBethesdaMD -->
-
-    <NamedIndividual rdf:about="&ont;NorthBethesdaMD">
-        <rdf:type rdf:resource="&ont;GeographicalLocation"/>
-        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://www.geonames.org/4363843/north-bethesda.html</rdfs:isDefinedBy>
+<rdf:RDF
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:dbpedia="http://dbpedia.org/resource/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:spin="http://spinrdf.org/spin#"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:sp="http://spinrdf.org/sp#"
+    xmlns="http://www.w3.org/2002/07/owl#"
+    xmlns:arg="http://spinrdf.org/arg#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:ont="http://www.co-ode.org/ontologies/ont.owl#"
+    xmlns:dbpedia-owl="http://dbpedia.org/ontology/"
+    xmlns:mo="http://purl.org/ontology/mo/"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:spl="http://spinrdf.org/spl#"
+  xml:base="http://www.co-ode.org/ontologies/cv/venues">
+  <Ontology rdf:about="">
+    <imports rdf:resource="http://www.co-ode.org/ontologies/cv/tbox"/>
+    <imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+    <imports rdf:resource="http://spinrdf.org/spin"/>
+    <rdfs:comment>Refactoring: venues. -kk 5/23/15</rdfs:comment>
+    <versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1.1.1</versionInfo>
+  </Ontology>
+  <ont:VenueForPerformance rdf:about="http://www.co-ode.org/ontologies/ont.owl#CoolidgeAuditoriumAtTheLibraryOfCongress">
+    <ont:venueURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.loc.gov/concerts/</ont:venueURL>
+    <ont:geonamesURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.geonames.org/4139387/library-of-congress.html</ont:geonamesURL>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </ont:VenueForPerformance>
+  <ont:GeographicalLocation rdf:about="http://www.co-ode.org/ontologies/ont.owl#FairfaxCountyVA">
+    <ont:locatedIn>
+      <ont:GeographicalLocation rdf:about="http://www.co-ode.org/ontologies/ont.owl#Virginia">
+        <ont:locationsOverlap>
+          <ont:GeographicalLocation rdf:about="http://www.co-ode.org/ontologies/ont.owl#MetroAreaOfWashingtonDC">
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </ont:GeographicalLocation>
+        </ont:locationsOverlap>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.geonames.org/6254928/virginia.html</rdfs:isDefinedBy>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </ont:GeographicalLocation>
+    </ont:locatedIn>
+    <ont:locatedIn rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MetroAreaOfWashingtonDC"/>
+    <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.geonames.org/4758041/fairfax-county.html</rdfs:isDefinedBy>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </ont:GeographicalLocation>
+  <ont:VenueForPerformance rdf:about="http://www.co-ode.org/ontologies/ont.owl#DavisPerformingArtsCenter">
+    <ont:locatedIn>
+      <ont:GeographicalLocation rdf:about="http://www.co-ode.org/ontologies/ont.owl#WashingtonDC">
+        <ont:locatedIn rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MetroAreaOfWashingtonDC"/>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.geonames.org/4138106/district-of-columbia.html</rdfs:isDefinedBy>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </ont:GeographicalLocation>
+    </ont:locatedIn>
+    <ont:venueURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >https://performingarts.georgetown.edu/academics/tpst/davis-performing-arts-center</ont:venueURL>
+    <ont:geonamesURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.geonames.org/6343084/davis-performing-arts-center.html</ont:geonamesURL>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </ont:VenueForPerformance>
+  <ont:VenueForPerformance rdf:about="http://www.co-ode.org/ontologies/ont.owl#BairdAuditoriumNtlMuseumOfNaturalHistory">
+    <ont:venueURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.mnh.si.edu/specialevents/baird.html</ont:venueURL>
+    <ont:geonamesURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.geonames.org/4139757/national-museum-of-natural-history.html</ont:geonamesURL>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </ont:VenueForPerformance>
+  <ont:VenueForPerformance rdf:about="http://www.co-ode.org/ontologies/ont.owl#ClariceSmithCenter">
+    <ont:locatedIn>
+      <ont:GeographicalLocation rdf:about="http://www.co-ode.org/ontologies/ont.owl#CollegeParkMD">
+        <ont:locatedIn>
+          <ont:GeographicalLocation rdf:about="http://www.co-ode.org/ontologies/ont.owl#PrinceGeorgesCountyMD">
+            <ont:locatedIn rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MetroAreaOfWashingtonDC"/>
+            <ont:locatedIn>
+              <ont:GeographicalLocation rdf:about="http://www.co-ode.org/ontologies/ont.owl#Maryland">
+                <ont:locationsOverlap rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MetroAreaOfWashingtonDC"/>
+                <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+                >http://www.geonames.org/4361885/maryland.html</rdfs:isDefinedBy>
+                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+              </ont:GeographicalLocation>
+            </ont:locatedIn>
+            <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.geonames.org/4366164/prince-george-s-county.html</rdfs:isDefinedBy>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </ont:GeographicalLocation>
+        </ont:locatedIn>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.geonames.org/4351977/college-park.html</rdfs:isDefinedBy>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </ont:GeographicalLocation>
+    </ont:locatedIn>
+    <ont:venueURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >https://theclarice.umd.edu</ont:venueURL>
+    <ont:geonamesURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.geonames.org/6340085/clarice-smith-performing-arts-center.html</ont:geonamesURL>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </ont:VenueForPerformance>
+  <ont:VenueForPerformance rdf:about="http://www.co-ode.org/ontologies/ont.owl#GMUCenter">
+    <ont:locatedIn>
+      <ont:GeographicalLocation rdf:about="http://www.co-ode.org/ontologies/ont.owl#FairfaxCityVA">
+        <ont:locatedIn rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Virginia"/>
+        <ont:locatedIn rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MetroAreaOfWashingtonDC"/>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.geonames.org/4758023/fairfax.html</rdfs:isDefinedBy>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </ont:GeographicalLocation>
+    </ont:locatedIn>
+    <ont:geonamesURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.geonames.org/6343192/center-for-the-arts-concert-hall.html</ont:geonamesURL>
+    <ont:venueURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://cfa.gmu.edu</ont:venueURL>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </ont:VenueForPerformance>
+  <ont:VenueForPerformance rdf:about="http://www.co-ode.org/ontologies/ont.owl#Strathmore">
+    <ont:locatedIn>
+      <ont:GeographicalLocation rdf:about="http://www.co-ode.org/ontologies/ont.owl#NorthBethesdaMD">
+        <ont:locatedIn>
+          <ont:GeographicalLocation rdf:about="http://www.co-ode.org/ontologies/ont.owl#BethesdaMD">
+            <ont:locatedIn>
+              <ont:GeographicalLocation rdf:about="http://www.co-ode.org/ontologies/ont.owl#MontgomeryCountyMD">
+                <ont:locatedIn rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MetroAreaOfWashingtonDC"/>
+                <ont:locatedIn rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Maryland"/>
+                <rdfs:comment>Known for Strathmore, a lack of comprehensive universities, and crazy liquor laws.</rdfs:comment>
+                <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+                >http://www.geonames.org/4362716/montgomery-county.html</rdfs:isDefinedBy>
+                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+              </ont:GeographicalLocation>
+            </ont:locatedIn>
+            <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.geonames.org/4348599/bethesda.html</rdfs:isDefinedBy>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </ont:GeographicalLocation>
+        </ont:locatedIn>
         <rdfs:comment>A geographical expression motivated primarily by wishful thinking</rdfs:comment>
-        <ont:locatedIn rdf:resource="&ont;BethesdaMD"/>
-    </NamedIndividual>
-    
-
-
-    <!-- http://www.co-ode.org/ontologies/ont.owl#PrinceGeorgesCountyMD -->
-
-    <NamedIndividual rdf:about="&ont;PrinceGeorgesCountyMD">
-        <rdf:type rdf:resource="&ont;GeographicalLocation"/>
-        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://www.geonames.org/4366164/prince-george-s-county.html</rdfs:isDefinedBy>
-        <ont:locatedIn rdf:resource="&ont;Maryland"/>
-        <ont:locatedIn rdf:resource="&ont;MetroAreaOfWashingtonDC"/>
-    </NamedIndividual>
-    
-
-
-    <!-- http://www.co-ode.org/ontologies/ont.owl#Strathmore -->
-
-    <NamedIndividual rdf:about="&ont;Strathmore">
-        <rdf:type rdf:resource="&ont;VenueForPerformance"/>
-        <ont:geonamesURL rdf:datatype="&xsd;anyURI">http://www.geonames.org/4357010/grosvenor-strathmore-metro-station.html</ont:geonamesURL>
-        <ont:venueURL rdf:datatype="&xsd;anyURI">http://www.strathmore.org</ont:venueURL>
-        <ont:locatedIn rdf:resource="&ont;NorthBethesdaMD"/>
-    </NamedIndividual>
-    
-
-
-    <!-- http://www.co-ode.org/ontologies/ont.owl#Virginia -->
-
-    <NamedIndividual rdf:about="&ont;Virginia">
-        <rdf:type rdf:resource="&ont;GeographicalLocation"/>
-        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://www.geonames.org/6254928/virginia.html</rdfs:isDefinedBy>
-        <ont:locationsOverlap rdf:resource="&ont;MetroAreaOfWashingtonDC"/>
-    </NamedIndividual>
-    
-
-
-    <!-- http://www.co-ode.org/ontologies/ont.owl#WashingtonDC -->
-
-    <NamedIndividual rdf:about="&ont;WashingtonDC">
-        <rdf:type rdf:resource="&ont;GeographicalLocation"/>
-        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://www.geonames.org/4138106/district-of-columbia.html</rdfs:isDefinedBy>
-        <ont:locatedIn rdf:resource="&ont;MetroAreaOfWashingtonDC"/>
-    </NamedIndividual>
-    
-
-
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.geonames.org/4363843/north-bethesda.html</rdfs:isDefinedBy>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </ont:GeographicalLocation>
+    </ont:locatedIn>
+    <ont:venueURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.strathmore.org</ont:venueURL>
+    <ont:geonamesURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.geonames.org/4357010/grosvenor-strathmore-metro-station.html</ont:geonamesURL>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </ont:VenueForPerformance>
+  <ont:VenueForPerformance rdf:about="http://www.w3.org/2002/07/owl#JCCGreaterWash"/>
+  <ont:VenueForPerformance rdf:about="http://www.co-ode.org/ontologies/ont.owl#FileneCenterAtWolfTrap">
+    <ont:venueURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.wolftrap.org/Filene_Center.aspx</ont:venueURL>
+    <ont:geonamesURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.geonames.org/4758747/filene-center.html</ont:geonamesURL>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </ont:VenueForPerformance>
+  <ont:VenueForPerformance rdf:about="http://www.co-ode.org/ontologies/ont.owl#KennedyCenter">
+    <ont:locatedIn rdf:resource="http://www.co-ode.org/ontologies/ont.owl#WashingtonDC"/>
+    <ont:venueURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.kennedy-center.org/index.cfm</ont:venueURL>
+    <ont:geonamesURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.geonames.org/4139237/john-f-kennedy-center-for-the-performing-arts.html</ont:geonamesURL>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </ont:VenueForPerformance>
 </rdf:RDF>
+
+<!-- Created with TopBraid -->
